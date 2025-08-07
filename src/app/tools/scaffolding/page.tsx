@@ -37,13 +37,25 @@ import {
   Palette
 } from "lucide-react";
 
+interface ScaffoldStrategy {
+  category: string;
+  name: string;
+  description: string;
+  examples: string[];
+  typologyInsights: string;
+  implementation: string;
+  mbtiTypes: string[];
+  enneagramTypes: string[];
+  gardnerTypes: string[];
+}
+
 export default function ScaffoldingTool() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [learnerType, setLearnerType] = useState("");
   const [teachingGoal, setTeachingGoal] = useState("");
   const [contentTopic, setContentTopic] = useState("");
-  const [generatedScaffolds, setGeneratedScaffolds] = useState([]);
+  const [generatedScaffolds, setGeneratedScaffolds] = useState<ScaffoldStrategy[]>([]);
   const [isGenerating, setIsGenerating] = useState(false);
 
   const scaffoldCategories = [
@@ -338,7 +350,7 @@ export default function ScaffoldingTool() {
     }, 2000);
   };
 
-  const copyToClipboard = (text) => {
+  const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
   };
 
@@ -416,6 +428,8 @@ export default function ScaffoldingTool() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredScaffolds.map((scaffold, index) => {
                 const categoryInfo = scaffoldCategories.find(cat => cat.id === scaffold.category);
+                if (!categoryInfo) return null;
+                
                 return (
                   <Card key={index} className="trimtab-card-hover">
                     <CardHeader>
@@ -573,13 +587,15 @@ export default function ScaffoldingTool() {
                   <div className="space-y-4">
                     {generatedScaffolds.map((scaffold, index) => {
                       const categoryInfo = scaffoldCategories.find(cat => cat.id === scaffold.category);
+                      if (!categoryInfo) return null;
+                      
                       return (
                         <Card key={index} className="border-l-4 border-l-blue-500">
                           <CardContent className="p-4">
                             <div className="flex items-start justify-between">
                               <div className="flex-1">
                                 <div className="flex items-center mb-2">
-                                  <Badge className={categoryInfo.color} size="sm">
+                                  <Badge className={categoryInfo.color}>
                                     <categoryInfo.icon className="h-3 w-3 mr-1" />
                                     {categoryInfo.name}
                                   </Badge>
