@@ -28,23 +28,13 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-  const navigation = [
-    { name: 'Home', href: '/' },
-    { 
-      name: 'About', 
-      href: '/about',
-      description: 'Learn about our mission and approach'
-    },
+  // Main navigation items for desktop - streamlined
+  const mainNavigation = [
+    { name: 'About', href: '/about' },
     {
       name: 'APEST',
       href: '#',
       dropdown: [
-        { 
-          name: 'APEST Descriptions', 
-          href: '/apest-descriptions',
-          description: 'Understanding the five-fold ministry gifts',
-          icon: Users
-        },
         { 
           name: 'APEST Quiz', 
           href: '/apest-quiz',
@@ -52,40 +42,16 @@ export default function Navigation() {
           icon: Target
         },
         { 
+          name: 'APEST Descriptions', 
+          href: '/apest-descriptions',
+          description: 'Understanding the five-fold ministry gifts',
+          icon: Users
+        },
+        { 
           name: 'Quiz Results', 
           href: '/apest-quiz-results',
           description: 'Understanding your results',
           icon: Award
-        },
-        { 
-          name: 'Teacher Description', 
-          href: '/teacher-description',
-          description: 'The Teaching ministry',
-          icon: BookOpen
-        },
-        { 
-          name: 'Shepherd Description', 
-          href: '/shepherd-description',
-          description: 'The Pastoral ministry',
-          icon: Heart
-        },
-        { 
-          name: 'Evangelist Description', 
-          href: '/evangelist-description',
-          description: 'The Evangelistic ministry',
-          icon: MessageCircle
-        },
-        { 
-          name: 'Prophet Description', 
-          href: '/prophet-description',
-          description: 'The Prophetic ministry',
-          icon: Lightbulb
-        },
-        { 
-          name: 'Apostle Description', 
-          href: '/apostle-description',
-          description: 'The Apostolic ministry',
-          icon: Compass
         }
       ]
     },
@@ -94,38 +60,44 @@ export default function Navigation() {
       href: '/courses',
       dropdown: [
         { 
-          name: 'APEST Foundations', 
-          href: '/apest-foundations-courses',
-          description: 'Core APEST training courses',
+          name: 'All Courses', 
+          href: '/courses',
+          description: 'Browse all APEST development courses',
           icon: GraduationCap
         },
         { 
-          name: 'The Four Teachers', 
-          href: '/the-four-teachers-course',
-          description: 'Deep dive into teaching ministry',
+          name: 'APEST Foundations', 
+          href: '/apest-foundations-courses',
+          description: 'Core APEST training courses',
           icon: BookOpen
         },
         { 
-          name: 'The Four Shepherds', 
-          href: '/the-four-shepherds-course',
-          description: 'Understanding pastoral care',
+          name: 'Teacher Courses', 
+          href: '/teacher-courses',
+          description: 'Teaching ministry development',
+          icon: BookOpen
+        },
+        { 
+          name: 'Shepherd Courses', 
+          href: '/shepherd-courses',
+          description: 'Pastoral care training',
           icon: Heart
         },
         { 
-          name: 'The Four Evangelists', 
-          href: '/the-four-evangelists-course',
-          description: 'Evangelism and outreach training',
+          name: 'Evangelist Courses', 
+          href: '/evangelist-courses',
+          description: 'Evangelism training',
           icon: MessageCircle
         },
         { 
-          name: 'The Four Prophets', 
-          href: '/the-four-prophets-course',
+          name: 'Prophet Courses', 
+          href: '/prophet-courses',
           description: 'Prophetic ministry development',
           icon: Lightbulb
         },
         { 
-          name: 'The Four Apostles', 
-          href: '/the-four-apostles-course',
+          name: 'Apostle Courses', 
+          href: '/apostle-courses',
           description: 'Apostolic leadership training',
           icon: Compass
         }
@@ -146,54 +118,53 @@ export default function Navigation() {
           href: '/consulting',
           description: 'Organizational transformation',
           icon: Target
-        },
-        { 
-          name: 'Co-Lab', 
-          href: '/co-lab',
-          description: 'Collaborative learning experiences',
-          icon: Calendar
         }
       ]
     },
-    { 
-      name: 'Resources', 
-      href: '/resources',
-      description: 'Tools, frameworks, and learning materials'
+    { name: 'Resources', href: '/resources' }
+  ];
+
+  // Full navigation for mobile menu
+  const fullNavigation = [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    {
+      name: 'APEST',
+      dropdown: [
+        { name: 'APEST Quiz', href: '/apest-quiz', icon: Target },
+        { name: 'APEST Descriptions', href: '/apest-descriptions', icon: Users },
+        { name: 'Quiz Results', href: '/apest-quiz-results', icon: Award },
+        { name: 'Teacher Description', href: '/teacher-description', icon: BookOpen },
+        { name: 'Shepherd Description', href: '/shepherd-description', icon: Heart },
+        { name: 'Evangelist Description', href: '/evangelist-description', icon: MessageCircle },
+        { name: 'Prophet Description', href: '/prophet-description', icon: Lightbulb },
+        { name: 'Apostle Description', href: '/apostle-description', icon: Compass }
+      ]
     },
     {
-      name: 'Tools',
-      href: '#',
+      name: 'Courses',
       dropdown: [
-        { 
-          name: 'Scaffolding Tool', 
-          href: '/tools/scaffolding',
-          description: 'Design personalized learning experiences',
-          icon: FileText
-        },
-        { 
-          name: 'eBook', 
-          href: '/ebook',
-          description: 'Digital learning resources',
-          icon: BookOpen
-        },
-        { 
-          name: 'Dashboard', 
-          href: '/dashboard',
-          description: 'Personal learning dashboard',
-          icon: Target
-        }
+        { name: 'All Courses', href: '/courses', icon: GraduationCap },
+        { name: 'APEST Foundations', href: '/apest-foundations-courses', icon: BookOpen },
+        { name: 'Teacher Courses', href: '/teacher-courses', icon: BookOpen },
+        { name: 'Shepherd Courses', href: '/shepherd-courses', icon: Heart },
+        { name: 'Evangelist Courses', href: '/evangelist-courses', icon: MessageCircle },
+        { name: 'Prophet Courses', href: '/prophet-courses', icon: Lightbulb },
+        { name: 'Apostle Courses', href: '/apostle-courses', icon: Compass }
       ]
     },
-    { 
-      name: 'Blog', 
-      href: '/blog',
-      description: 'Insights on missional leadership and APEST'
+    {
+      name: 'Services',
+      dropdown: [
+        { name: 'Coaching', href: '/coaching', icon: Users },
+        { name: 'Consulting', href: '/consulting', icon: Target },
+        { name: 'Co-Lab', href: '/co-lab', icon: Calendar }
+      ]
     },
-    { 
-      name: 'Contact', 
-      href: '/contact',
-      description: 'Get in touch for coaching or consulting'
-    }
+    { name: 'Resources', href: '/resources' },
+    { name: 'Shop', href: '/shop' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Contact', href: '/contact' }
   ];
 
   return (
@@ -201,7 +172,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center space-x-3 flex-shrink-0">
             <div className="w-10 h-10 trimtab-gradient rounded-lg flex items-center justify-center">
               <Zap className="h-6 w-6 text-white" />
             </div>
@@ -211,9 +182,9 @@ export default function Navigation() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
+          {/* Desktop Navigation - Hidden on smaller screens, shown on large screens */}
+          <div className="hidden lg:flex items-center space-x-1">
+            {mainNavigation.map((item) => (
               <div key={item.name} className="relative">
                 {item.dropdown ? (
                   <div 
@@ -221,32 +192,34 @@ export default function Navigation() {
                     onMouseEnter={() => setActiveDropdown(item.name)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <button className="flex items-center text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+                    <button className="flex items-center text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-gray-50">
                       {item.name}
                       <ChevronDown className="ml-1 h-4 w-4" />
                     </button>
                     
                     {activeDropdown === item.name && (
                       <div 
-                        className="nav-dropdown absolute top-full left-0 mt-1 w-80 bg-white rounded-lg shadow-lg border border-gray-200 p-4 z-50"
+                        className="absolute top-full left-0 mt-1 w-72 bg-white rounded-lg shadow-lg border border-gray-200 p-2 z-50"
                         onMouseEnter={() => setActiveDropdown(item.name)}
                         onMouseLeave={() => setActiveDropdown(null)}
                       >
-                        <div className="grid gap-2">
+                        <div className="space-y-1">
                           {item.dropdown.map((subItem) => (
                             <Link
                               key={subItem.name}
                               href={subItem.href}
-                              className="flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors group"
+                              className="flex items-start p-2 rounded-md hover:bg-gray-50 transition-colors group"
                             >
-                              <subItem.icon className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
+                              <subItem.icon className="h-4 w-4 text-blue-600 mt-1 mr-3 flex-shrink-0" />
                               <div>
-                                <div className="font-medium text-gray-900 group-hover:text-blue-600">
+                                <div className="font-medium text-gray-900 group-hover:text-blue-600 text-sm">
                                   {subItem.name}
                                 </div>
-                                <div className="text-xs text-gray-500 mt-1">
-                                  {subItem.description}
-                                </div>
+                                {subItem.description && (
+                                  <div className="text-xs text-gray-500 mt-1">
+                                    {subItem.description}
+                                  </div>
+                                )}
                               </div>
                             </Link>
                           ))}
@@ -257,7 +230,7 @@ export default function Navigation() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="nav-item-hover text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
+                    className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-gray-50"
                   >
                     {item.name}
                   </Link>
@@ -266,53 +239,53 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* CTA Buttons - Hidden on mobile, shown on tablet and up */}
+          <div className="hidden md:flex items-center space-x-3 flex-shrink-0">
             <Link href="/apest-quiz">
-              <Button variant="outline" size="sm" className="flex items-center">
-                <Target className="h-4 w-4 mr-2" />
-                Take Quiz
+              <Button variant="outline" size="sm" className="flex items-center text-xs">
+                <Target className="h-3 w-3 mr-1" />
+                Quiz
               </Button>
             </Link>
             <Link href="/contact">
-              <Button size="sm" className="trimtab-gradient text-white border-0">
-                <Mail className="h-4 w-4 mr-2" />
-                Get Started
+              <Button size="sm" className="trimtab-gradient text-white border-0 text-xs">
+                <Mail className="h-3 w-3 mr-1" />
+                Contact
               </Button>
             </Link>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile menu button - Hidden on large screens */}
+          <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-blue-600 p-2"
+              className="text-gray-700 hover:text-blue-600 p-2 rounded-md hover:bg-gray-50"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Full height overlay */}
         {isOpen && (
-          <div className="md:hidden border-t border-gray-200 py-4">
-            <div className="space-y-2">
-              {navigation.map((item) => (
+          <div className="lg:hidden fixed inset-0 top-16 bg-white z-40 overflow-y-auto">
+            <div className="px-4 py-6 space-y-4">
+              {fullNavigation.map((item, index) => (
                 <div key={item.name}>
                   {item.dropdown ? (
                     <div>
-                      <div className="text-gray-900 font-medium px-3 py-2 text-base">
+                      <div className="text-gray-900 font-semibold px-3 py-2 text-lg border-b border-gray-100">
                         {item.name}
                       </div>
-                      <div className="ml-4 space-y-1">
+                      <div className="ml-2 mt-2 space-y-1">
                         {item.dropdown.map((subItem) => (
                           <Link
                             key={subItem.name}
                             href={subItem.href}
-                            className="flex items-center text-gray-600 hover:text-blue-600 px-3 py-2 text-sm transition-colors"
+                            className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-gray-50 px-3 py-3 text-base transition-colors rounded-lg"
                             onClick={() => setIsOpen(false)}
                           >
-                            <subItem.icon className="h-4 w-4 mr-2" />
+                            <subItem.icon className="h-5 w-5 mr-3 text-blue-600" />
                             {subItem.name}
                           </Link>
                         ))}
@@ -321,7 +294,7 @@ export default function Navigation() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="block text-gray-700 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors"
+                      className="block text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-3 py-3 text-lg font-medium transition-colors rounded-lg"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.name}
@@ -330,16 +303,16 @@ export default function Navigation() {
                 </div>
               ))}
               
-              <div className="border-t border-gray-200 pt-4 mt-4 space-y-2">
+              <div className="border-t border-gray-200 pt-6 mt-6 space-y-3">
                 <Link href="/apest-quiz" onClick={() => setIsOpen(false)}>
-                  <Button variant="outline" className="w-full flex items-center justify-center">
-                    <Target className="h-4 w-4 mr-2" />
+                  <Button variant="outline" className="w-full h-12 flex items-center justify-center text-base">
+                    <Target className="h-5 w-5 mr-2" />
                     Take APEST Quiz
                   </Button>
                 </Link>
                 <Link href="/contact" onClick={() => setIsOpen(false)}>
-                  <Button className="w-full trimtab-gradient text-white border-0 flex items-center justify-center">
-                    <Mail className="h-4 w-4 mr-2" />
+                  <Button className="w-full h-12 trimtab-gradient text-white border-0 flex items-center justify-center text-base">
+                    <Mail className="h-5 w-5 mr-2" />
                     Get Started
                   </Button>
                 </Link>

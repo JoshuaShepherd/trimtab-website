@@ -1,26 +1,265 @@
 import { Metadata } from 'next'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { 
+  Lightbulb, 
+  Target, 
+  Users, 
+  TrendingUp,
+  CheckCircle,
+  ArrowRight,
+  MessageCircle,
+  Calendar,
+  Award
+} from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Consulting",
-  description: "Customized Solutions for Applying APEST in your Context\\n\\nWhether you're a pastor, missionary, ministry leader, or non-profit leader, we come alongside and hel"
+  title: "APEST Consulting Services - Transform Your Organization",
+  description: "Expert APEST consulting to help your organization discover, develop, and deploy the fivefold ministry gifts for maximum kingdom impact."
 }
 
-export default function Consulting() {
+export default function ConsultingPage() {
+  const consultingServices = [
+    {
+      title: "APEST Assessment & Analysis",
+      description: "Comprehensive evaluation of your team's APEST profile and organizational culture",
+      icon: Target,
+      features: [
+        "Team-wide APEST assessments",
+        "Organizational culture analysis",
+        "Gap identification and recommendations",
+        "Custom development roadmap"
+      ]
+    },
+    {
+      title: "Leadership Development",
+      description: "Equip leaders to recognize, develop, and deploy APEST gifts effectively",
+      icon: TrendingUp,
+      features: [
+        "Leadership coaching sessions",
+        "APEST-based team building",
+        "Ministry deployment strategies",
+        "Performance optimization"
+      ]
+    },
+    {
+      title: "Organizational Transformation",
+      description: "Restructure systems and processes to align with APEST principles",
+      icon: Users,
+      features: [
+        "Structural realignment",
+        "Process optimization",
+        "Culture transformation",
+        "Sustainable change management"
+      ]
+    }
+  ];
+
+  const consultingProcess = [
+    {
+      step: 1,
+      title: "Discovery",
+      description: "We begin with a comprehensive assessment of your current state",
+      icon: Lightbulb
+    },
+    {
+      step: 2,
+      title: "Design",
+      description: "Create a customized APEST development plan for your organization",
+      icon: Target
+    },
+    {
+      step: 3,
+      title: "Deploy",
+      description: "Implement strategies with ongoing support and coaching",
+      icon: TrendingUp
+    },
+    {
+      step: 4,
+      title: "Develop",
+      description: "Continuous improvement and long-term transformation",
+      icon: Award
+    }
+  ];
+
   return (
     <div className="container mx-auto px-4 py-16">
-      <article className="max-w-4xl mx-auto">
-        <header className="mb-12 text-center">
+      <div className="max-w-6xl mx-auto">
+        <header className="mb-16 text-center">
+          <Badge variant="outline" className="mb-4 text-lg px-4 py-2">
+            Professional Services
+          </Badge>
           <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            "Consulting"
+            APEST Consulting
           </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Transform your organization by discovering, developing, and deploying 
+            the fivefold ministry gifts for maximum kingdom impact.
+          </p>
         </header>
-        
-        <div className="prose prose-lg max-w-none">
-          <div className="text-gray-700 leading-relaxed space-y-6">
-            <p>Customized Solutions for Applying APEST in your Context\\n\\nWhether you're a pastor, missionary, ministry leader, or non-profit leader, we come alongside and help you navigate the complex challenges of applying APEST in your context. Choose between Craft consulting for customized 1 on 1 support, or Synergy consulting for customized team and organizational support.\\n\\nThis 10 month 1 on 1 consulting experience has three modules. The first module focuses on developing a Clearer Assessment of your personal APEST Profile, Leadership Journey, APEST Maturity, and APEST Vision and Project.\\n\\nThe second and third modules focus on developing Closer Alignment with, and Wider Application of, APEST paradigms and practices in your context, along with a Deeper Appreciation of your personal progress in the implementation of your APEST Vision and Project. For a more detailed description of the modules, click here.\\n\\nThere are a total of 20 bi-weekly Zoom calls, each 6o minutes long. Each call consists of three blocks:\\n\\nWe start with a check in, processing learning and progress from previous action items, and setting goals for the call.\\n\\nGenerative dialogue that consists of probing questions, reflective listening, creative problem solving, and strategic resourcing with tools and tactics around key challenges and tasks.\\n\\nHighlight and capture key learning moments from the call, and identify 2-3 action items moving forward\\n\\nEach consulting session is designed to cultivate seven developmental outcomes related to APEST paradigms and practices.\\n\\nEvery participant will recieve the following seven deliverables:\\n\\nReady to take the next step in your APEST journey? Get started with Craft consutling:\\n\\nUsing APEST paradigms and principles, together we'll craft customized solutions for applying APEST in your unique context, enabling you to turn your vision into reality.\\n\\nAsk us about our discounts for missionaries, and those working in smaller churches and non-profits.\\n\\nSynergy consulting helps you navigate the complex task of applying APEST in teams and organizations. We come alongside to facilitate an experience of generative dialogue that incorporates strategic analysis, pivotal insights, and organizing frameworks. The goal is to discover customized solutions that align with your deepest values and aspirations.\\n\\nIt starts with a conversation to determine your teams scope of interst and vision for applying APEST in your context. From there, we map out a customized consutling process that aligns our suite of services with your needs and goals.\\n\\nFor a more detailed look at the Synergy consulting experience, click here.\\n\\nOur tailored services are designed to maximize learning and development around APEST paradigms and practices. Whether it's our individual, team, or organizational APEST Assessments, Strategy Labs, Workshops, Retreats, or Follow Ups to process insights, set goals, identify next steps, and review progress, we collaborate with you to design a customized experience that fits the unique opportunities for growth in your team and organization. For a more detailed look at our services click here.\\n\\nOur consulting services are designed to cultivate seven developmental outcomes related to APEST paradigms and practices.\\n\\nEvery participant will recieve the following deliverables from our services:\\n\\nReady to unlock the tranformative power of APEST in your team and organizaton? Let's get started!\\n\\nUsing APEST paradigms and principles, together we'll craft customized solutions for applying APEST in your unique context, enabling you to unlock the tranformative power of APEST in your team and organization\\n\\nWe understand that every team and organization is unique, with its own set of challenges and budget constraints. That's why we offer our Synergy consulting services on a sliding scale to accomodate your budget. Schedule a call with me to discuss your needs and let's determine a pricing structure that fits.\\n\\nYour APEST Vision is the big picture, long term view of what you want to see happen in your context.\\n\\nYour APEST Project is an immediate, short term initiative that you can start designing and developing during the consulting experience.\\n\\nCraft consulting gives you Mastermind access to one of the world's leading reflective practioners and trainers of APEST. Tim will leverage his extensive knowledge, wisdom, and experience, as well as all the relevant tools and resources at his disposal to partner with you in a creative process that generates customized solutions that fit your unique needs and goals, ensuring APEST paradigms and principles are applied in the most effective way possible in your context.\\n\\nCraft consulting sessions take place on Zoom, Monday through Friday, at a time that overlaps between our mutual availability. There are a total of 20 one hour sessions.\\n\\nIt starts with a conversation to determine your teams scope of interst and vision for applying APEST in your context. From there, we map out a customized consutling process that fits your needs and goals. However, as a general rule, the first stage of the consulting process focuses on conducting APEST Assessements of team members, the team, and the organization.\\n\\nBased on the results of those assessments, we enter into a focused stage of generative dialoge that incorporates strategic analysis, organizing frameworks, and pivotal insights. The goal is to collaboratively map out an initial pathway for us to journey together on, which often includes tailored Strategy Labs, Workshops, Retreats for the team, and ongoing Follow Up conversations. For a more detailed look at the consulting experience, click here.\\n\\nBy guiding you in a process of recognizing and valuing the variety of APEST giftings within your team, and how they contribute to its health and vibrancy, our consulting fosters an environment where collaboration and teamwork can flourish. Your team will learn to leverage the unique strengths of each member, while also growing an maturing in the basic skills and sensibilities of each APEST gifting, leading to innovative solutions and a more healthy, cohesive team dynamic.\\n\\nAs we develop a culture of continuous learning and adaptation within your team, you will develop the essential capcities for navigating the complexities of your organization in today’s cultutral context.\\n\\nSynergy consulting sessions can take place online or onsite. The consuting relationship can last a few days, weeks, months, or even years, depending on your needs and goals.\\n\\nThe time, location, and format of our consluting sessions are mutually discerned after initial APEST Assessments of individual team members, the team, and the organization have been completed.\\n\\nSynergy consulting is a flexible, open ended process of resourcing teams with customized solutions for applying APEST in their team, organization, and context. It is an adaptive approach that can look different for each client depending on their needs, goals, and context.\\n\\nVanguard coaching is a more structured, 10 month process of helping teams apply APEST paradigms and practices in their leadership, team, and organizational culture. It is a streamlined approach that follows a specific developmental path to acheive focused outcomes. For more on Vanguard team coaching, click here.\\n\\nWe also provide a detailed Synergy consulting description so you can understand the consulting relationship, process, content, and structure before making a commitment. To view this description here.</p>
+
+        <div className="mb-16">
+          <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
+            <CardHeader>
+              <CardTitle className="text-2xl text-center">Why APEST Consulting Matters</CardTitle>
+            </CardHeader>
+            <CardContent className="text-center">
+              <p className="text-lg text-gray-700 mb-6">
+                Most organizations operate below their full potential because they haven't aligned 
+                their people with their God-given APEST gifts. Our consulting services help you 
+                create a culture where every person can thrive in their calling.
+              </p>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="text-center">
+                  <Target className="w-10 h-10 text-blue-600 mx-auto mb-3" />
+                  <h4 className="font-semibold text-lg mb-2">Clarity</h4>
+                  <p className="text-gray-600">Understand each person's unique contribution</p>
+                </div>
+                <div className="text-center">
+                  <TrendingUp className="w-10 h-10 text-blue-600 mx-auto mb-3" />
+                  <h4 className="font-semibold text-lg mb-2">Growth</h4>
+                  <p className="text-gray-600">Accelerate personal and organizational development</p>
+                </div>
+                <div className="text-center">
+                  <Users className="w-10 h-10 text-blue-600 mx-auto mb-3" />
+                  <h4 className="font-semibold text-lg mb-2">Unity</h4>
+                  <p className="text-gray-600">Build cohesive teams that complement each other</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Consulting Services</h2>
+          <div className="grid lg:grid-cols-3 gap-8">
+            {consultingServices.map((service, index) => (
+              <Card key={index} className="h-full hover:shadow-lg transition-shadow duration-300">
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <service.icon className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <CardTitle className="text-xl">{service.title}</CardTitle>
+                  </div>
+                  <p className="text-gray-600">{service.description}</p>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center gap-2 text-sm text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
-      </article>
+
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Consulting Process</h2>
+          <div className="grid md:grid-cols-4 gap-6">
+            {consultingProcess.map((phase, index) => (
+              <Card key={index} className="text-center">
+                <CardHeader>
+                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <phase.icon className="w-8 h-8 text-blue-600" />
+                  </div>
+                  <Badge variant="secondary" className="mb-2">Step {phase.step}</Badge>
+                  <CardTitle className="text-lg">{phase.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 text-sm">{phase.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Who We Serve</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl">Churches & Ministries</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                    Leadership team development
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                    Ministry structure optimization
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                    Volunteer mobilization strategies
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                    Discipleship pathway design
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl">Organizations & Businesses</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                    Team dynamics improvement
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                    Leadership pipeline development
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                    Organizational culture transformation
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                    Performance optimization
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-8 text-center text-white">
+          <h2 className="text-2xl font-bold mb-4">Ready to Transform Your Organization?</h2>
+          <p className="text-lg text-blue-100 mb-6">
+            Let's discover how APEST principles can unlock your team's full potential 
+            and accelerate your mission impact.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" variant="secondary" asChild>
+              <Link href="/contact">
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Start a Conversation
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-600" asChild>
+              <Link href="/coaching">
+                <Calendar className="w-5 h-5 mr-2" />
+                Schedule Discovery Call
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

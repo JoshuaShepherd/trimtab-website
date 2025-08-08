@@ -1,8 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import Link from "next/link";
 import { 
   BookOpen,
@@ -24,48 +22,56 @@ import {
   Heart,
   Zap
 } from "lucide-react";
+import Footer from "@/components/Footer";
 
 export default function EBookLandingPage() {
   const chapters = [
     {
       number: 1,
-      title: "Understanding the APEST Framework",
-      subtitle: "The Five-Fold Ministry Gifts in Modern Context",
-      duration: "15 min read",
+      title: "The Current State of Ministry",
+      subtitle: "Why APEST Matters More Than Ever",
+      duration: "12 min read",
       status: "completed"
     },
     {
       number: 2,
-      title: "The Apostolic Function",
-      subtitle: "Pioneering and Catalizing New Kingdom Realities",
-      duration: "18 min read",
+      title: "Christ as the Chief Cornerstone",
+      subtitle: "The Foundation for All Ministry Gifts",
+      duration: "22 min read",
       status: "current"
     },
     {
       number: 3,
-      title: "The Prophetic Voice",
-      subtitle: "Discerning God's Heart for His People",
-      duration: "16 min read",
+      title: "Apostolic and Prophetic Connexus",
+      subtitle: "When Two Foundation Stones Work Together",
+      duration: "25 min read",
       status: "locked"
     },
     {
       number: 4,
-      title: "Evangelistic DNA",
-      subtitle: "Spreading the Good News Naturally",
-      duration: "14 min read",
+      title: "Understanding Apostolic Ministry",
+      subtitle: "Sent and Scaling for Kingdom Impact",
+      duration: "18 min read",
       status: "locked"
     },
     {
       number: 5,
-      title: "Pastoral Care & Shepherding",
-      subtitle: "Nurturing and Protecting God's People",
-      duration: "17 min read",
+      title: "The Prophetic Function Unveiled",
+      subtitle: "Revealing and Reforming with Integrity",
+      duration: "20 min read",
       status: "locked"
     },
     {
       number: 6,
-      title: "Teaching for Transformation",
-      subtitle: "Building Understanding that Changes Lives",
+      title: "Overcoming Ministry Hostility",
+      subtitle: "Deactivating Conflict for Healthy Relationships",
+      duration: "16 min read",
+      status: "locked"
+    },
+    {
+      number: 7,
+      title: "Building Healthy APEST Teams",
+      subtitle: "From Individual Gifts to Collaborative Ministry",
       duration: "19 min read",
       status: "locked"
     }
@@ -76,49 +82,49 @@ export default function EBookLandingPage() {
       title: "APEST Assessment Tool",
       type: "Interactive Assessment",
       icon: Target,
-      description: "Discover your primary and secondary APEST gifts"
+      description: "Discover your primary and secondary APEST gifts and calling"
     },
     {
-      title: "Ministry Team Dynamics Worksheet",
-      type: "PDF Download",
+      title: "Apostolic-Prophetic Relationship Guide",
+      type: "PDF Workbook",
       icon: Users,
-      description: "Map your team's APEST composition and gaps"
+      description: "Practical exercises for building healthy ministry partnerships"
     },
     {
-      title: "Webinar Series: Living Your Gifts",
+      title: "Webinar Series: Connexus in Action",
       type: "Audio/Video",
       icon: Video,
-      description: "4-part series on activating your APEST calling"
+      description: "Master webinar content with Tim Catchim and Christopher Caputo"
     },
     {
-      title: "Community Discussion Guide",
+      title: "Ministry Team Dynamics Assessment",
       type: "Study Guide",
       icon: MessageCircle,
-      description: "Questions for group study and reflection"
+      description: "Tools for evaluating and strengthening your ministry foundation"
     }
   ];
 
   const testimonials = [
     {
-      name: "Sarah Chen",
-      role: "Church Planter",
-      quote: "This eBook completely transformed how I understand my calling and how to build effective ministry teams."
+      name: "Dr. Michael Harrison",
+      role: "Church Planter & Apostolic Leader",
+      quote: "This content transformed how I understand my relationship with prophetic voices. We've moved from conflict to powerful collaboration."
     },
     {
-      name: "Marcus Rodriguez", 
-      role: "Lead Pastor",
-      quote: "The interactive format made complex theological concepts incredibly accessible and practical."
+      name: "Sarah Chen", 
+      role: "Prophetic Minister",
+      quote: "Finally, a framework that honors both apostolic and prophetic callings while showing us how to work together in healthy unity."
     },
     {
-      name: "Dr. Rachel Thompson",
-      role: "Seminary Professor",
-      quote: "Tim's approach to APEST is both biblically grounded and remarkably practical for today's church."
+      name: "Pastor David Rodriguez",
+      role: "Senior Pastor",
+      quote: "Tim and Chris have given us the theological depth and practical tools our leadership team needed to build on a solid foundation."
     }
   ];
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
+      {/* <Navigation /> */}
       
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-20">
@@ -130,15 +136,15 @@ export default function EBookLandingPage() {
                 Interactive Digital eBook
               </Badge>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Discover Your
+                Master Your
                 <span className="block trimtab-gradient bg-clip-text text-transparent">
-                  APEST Calling
+                  Apostolic & Prophetic Connexus
                 </span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                An interactive learning journey through the five-fold ministry gifts, 
-                featuring audio teachings, reflection exercises, and practical tools 
-                for ministry transformation.
+                Discover how Christ as the Chief Cornerstone provides the foundation 
+                for apostles and prophets to work together in healthy, transformative 
+                ministry relationships that build the Church.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -157,15 +163,15 @@ export default function EBookLandingPage() {
               <div className="flex items-center space-x-6 text-sm text-gray-600">
                 <div className="flex items-center">
                   <Clock className="h-4 w-4 mr-1" />
-                  <span>2 hours total</span>
+                  <span>3.5 hours total</span>
                 </div>
                 <div className="flex items-center">
                   <BookOpen className="h-4 w-4 mr-1" />
-                  <span>6 chapters</span>
+                  <span>7 chapters</span>
                 </div>
                 <div className="flex items-center">
                   <Headphones className="h-4 w-4 mr-1" />
-                  <span>Audio included</span>
+                  <span>Webinar audio</span>
                 </div>
               </div>
             </div>
@@ -177,10 +183,10 @@ export default function EBookLandingPage() {
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
                     <Zap className="h-8 w-8 text-blue-600" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-2">APEST</h3>
-                  <h4 className="text-xl mb-4">Discovering Your Ministry Gifts</h4>
+                  <h3 className="text-2xl font-bold mb-2">Apostolic & Prophetic</h3>
+                  <h4 className="text-xl mb-4">Connexus</h4>
                   <p className="text-blue-100 text-sm mb-6">
-                    An Interactive Learning Experience
+                    Building Healthy Ministry Foundations
                   </p>
                   <div className="border-t border-blue-400 pt-4">
                     <p className="text-sm font-medium">Tim Catchim</p>
@@ -215,10 +221,10 @@ export default function EBookLandingPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Learning Journey
+              Your Learning Journey
             </h2>
             <p className="text-xl text-gray-600">
-              Six chapters designed to transform your understanding of ministry gifts
+              Seven transformative chapters on apostolic and prophetic ministry relationships
             </p>
           </div>
           
@@ -285,7 +291,7 @@ export default function EBookLandingPage() {
             <div className="bg-blue-600 h-2 rounded-full" style={{ width: '25%' }}></div>
           </div>
           <p className="text-center mt-2 text-sm text-gray-600">
-            1 of 6 chapters completed (17% progress)
+            1 of 7 chapters completed (14% progress)
           </p>
         </div>
       </section>
@@ -358,11 +364,11 @@ export default function EBookLandingPage() {
       <section className="py-20 trimtab-gradient text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Discover Your Calling?
+            Ready to Build Healthy Ministry Foundations?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of leaders who have transformed their ministry through 
-            understanding their APEST gifts.
+            Join ministry leaders who are discovering how apostolic and prophetic partnerships 
+            create the foundation for thriving, sustainable ministry.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/ebook/chapter/1">

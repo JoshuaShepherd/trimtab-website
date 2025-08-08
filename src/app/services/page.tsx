@@ -1,8 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import Link from "next/link";
 import { 
   Users,
@@ -170,8 +168,6 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
-      
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -346,8 +342,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

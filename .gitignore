@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# website screenshots (generated content)
+/website-screenshots/
+!/website-screenshots/README.md
