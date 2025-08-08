@@ -1,23 +1,23 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Contact Tim",
-  description: "Reach out to Tim to schedule a call or with any questions you may have."
+  title: "The Four Prophets Course",
+  description: "Let someone know about The Four Prophets course:"
 }
 
-export default function Contact() {
+export default function TheFourProphetsCourse() {
   return (
     <div className="container mx-auto px-4 py-16">
       <article className="max-w-4xl mx-auto">
         <header className="mb-12 text-center">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            "Contact Tim"
+            "The Four Prophets Course"
           </h1>
         </header>
         
         <div className="prose prose-lg max-w-none">
           <div className="text-gray-700 leading-relaxed space-y-6">
-            <p>Reach out to Tim to schedule a call or with any questions you may have.</p>
+            <p>Let someone know about The Four Prophets course:</p>
           </div>
         </div>
       </article>

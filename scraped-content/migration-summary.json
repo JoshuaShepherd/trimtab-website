@@ -1,0 +1,68 @@
+{
+  "timestamp": "2025-08-08T00:57:33.614Z",
+  "scrapedContent": {
+    "api": {
+      "posts": 18,
+      "pages": 36
+    },
+    "metadata": {
+      "posts": 18,
+      "pages": 36,
+      "categories": 21,
+      "tags": 11,
+      "media": 100
+    }
+  },
+  "generatedPages": {
+    "directories": [
+      "about",
+      "apest-descriptions",
+      "apest-foundations-courses",
+      "apest-quiz",
+      "apest-quiz-results",
+      "apostle-courses",
+      "apostle-description",
+      "blog",
+      "cart",
+      "checkout",
+      "co-lab",
+      "coaching",
+      "consulting",
+      "contact",
+      "courses",
+      "dashboard",
+      "ebook",
+      "emsi-skills-autocomplete",
+      "emsi-skills-dropdown",
+      "esmi-skills",
+      "evangelist-courses",
+      "evangelist-description",
+      "my-account",
+      "my-account-2",
+      "prophet-courses",
+      "prophet-description",
+      "resources",
+      "services",
+      "shepherd-courses",
+      "shepherd-description",
+      "shop",
+      "single-course-template",
+      "teacher-courses",
+      "teacher-description",
+      "the-four-apostles-course",
+      "the-four-evangelists-course",
+      "the-four-prophets-course",
+      "the-four-shepherds-course",
+      "the-four-teachers-course",
+      "tools"
+    ],
+    "count": 40
+  },
+  "recommendations": [
+    "✅ WordPress API scraping successful - high quality content extracted",
+    "✅ Generated 40 Next.js page(s)",
+    "⚠️  100 media files found - consider downloading images",
+    "✅ Blog section created - review individual posts for formatting",
+    "💡 Next steps: Review generated pages, update navigation, and style with Tailwind CSS"
+  ]
+}

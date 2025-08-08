@@ -6,7 +6,14 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migrate": "node scripts/migrate.js",
+    "migrate:api": "node scripts/wp-api-scraper.js",
+    "migrate:html": "node scripts/html-scraper.js",
+    "migrate:convert": "node scripts/content-converter.js",
+    "migrate:full": "node scripts/migrate.js full",
+    "migrate:clean": "node scripts/migrate.js clean",
+    "migrate:summary": "node scripts/migrate.js summary"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.14",
