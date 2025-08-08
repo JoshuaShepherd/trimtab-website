@@ -13,46 +13,144 @@ import {
   Calendar, 
   MessageCircle,
   ExternalLink,
-  ChevronDown
+  ChevronDown,
+  Target,
+  Heart,
+  Compass,
+  Lightbulb,
+  ShoppingCart,
+  FileText,
+  Award,
+  Mail
 } from "lucide-react";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const navigation = [
     { name: 'Home', href: '/' },
     { 
       name: 'About', 
       href: '/about',
-      description: 'Learn about Tim\'s mission and approach'
+      description: 'Learn about our mission and approach'
     },
     {
-      name: 'Services',
+      name: 'APEST',
       href: '#',
       dropdown: [
         { 
-          name: 'APEST Coaching', 
-          href: '/services/apest-coaching',
-          description: 'Five-fold ministry assessment and development',
+          name: 'APEST Descriptions', 
+          href: '/apest-descriptions',
+          description: 'Understanding the five-fold ministry gifts',
           icon: Users
         },
         { 
-          name: 'Leadership Training', 
-          href: '/services/leadership-training',
-          description: 'Missional leadership development programs',
-          icon: GraduationCap
+          name: 'APEST Quiz', 
+          href: '/apest-quiz',
+          description: 'Discover your ministry calling',
+          icon: Target
         },
         { 
-          name: 'Church Consulting', 
-          href: '/services/church-consulting',
-          description: 'Strategic guidance for missional transformation',
+          name: 'Quiz Results', 
+          href: '/apest-quiz-results',
+          description: 'Understanding your results',
+          icon: Award
+        },
+        { 
+          name: 'Teacher Description', 
+          href: '/teacher-description',
+          description: 'The Teaching ministry',
           icon: BookOpen
         },
         { 
-          name: 'Speaking & Events', 
-          href: '/services/speaking',
-          description: 'Keynotes, workshops, and conference sessions',
+          name: 'Shepherd Description', 
+          href: '/shepherd-description',
+          description: 'The Pastoral ministry',
+          icon: Heart
+        },
+        { 
+          name: 'Evangelist Description', 
+          href: '/evangelist-description',
+          description: 'The Evangelistic ministry',
+          icon: MessageCircle
+        },
+        { 
+          name: 'Prophet Description', 
+          href: '/prophet-description',
+          description: 'The Prophetic ministry',
+          icon: Lightbulb
+        },
+        { 
+          name: 'Apostle Description', 
+          href: '/apostle-description',
+          description: 'The Apostolic ministry',
+          icon: Compass
+        }
+      ]
+    },
+    {
+      name: 'Courses',
+      href: '/courses',
+      dropdown: [
+        { 
+          name: 'APEST Foundations', 
+          href: '/apest-foundations-courses',
+          description: 'Core APEST training courses',
+          icon: GraduationCap
+        },
+        { 
+          name: 'The Four Teachers', 
+          href: '/the-four-teachers-course',
+          description: 'Deep dive into teaching ministry',
+          icon: BookOpen
+        },
+        { 
+          name: 'The Four Shepherds', 
+          href: '/the-four-shepherds-course',
+          description: 'Understanding pastoral care',
+          icon: Heart
+        },
+        { 
+          name: 'The Four Evangelists', 
+          href: '/the-four-evangelists-course',
+          description: 'Evangelism and outreach training',
+          icon: MessageCircle
+        },
+        { 
+          name: 'The Four Prophets', 
+          href: '/the-four-prophets-course',
+          description: 'Prophetic ministry development',
+          icon: Lightbulb
+        },
+        { 
+          name: 'The Four Apostles', 
+          href: '/the-four-apostles-course',
+          description: 'Apostolic leadership training',
+          icon: Compass
+        }
+      ]
+    },
+    {
+      name: 'Services',
+      href: '/services',
+      dropdown: [
+        { 
+          name: 'Coaching', 
+          href: '/coaching',
+          description: 'Personal APEST coaching sessions',
+          icon: Users
+        },
+        { 
+          name: 'Consulting', 
+          href: '/consulting',
+          description: 'Organizational transformation',
+          icon: Target
+        },
+        { 
+          name: 'Co-Lab', 
+          href: '/co-lab',
+          description: 'Collaborative learning experiences',
           icon: Calendar
         }
       ]
@@ -70,19 +168,19 @@ export default function Navigation() {
           name: 'Scaffolding Tool', 
           href: '/tools/scaffolding',
           description: 'Design personalized learning experiences',
+          icon: FileText
+        },
+        { 
+          name: 'eBook', 
+          href: '/ebook',
+          description: 'Digital learning resources',
           icon: BookOpen
         },
         { 
-          name: 'APEST Assessment', 
-          href: '/tools/apest-assessment',
-          description: 'Discover your five-fold ministry gifts',
-          icon: Users
-        },
-        { 
-          name: 'Leadership Planner', 
-          href: '/tools/leadership-planner',
-          description: 'Strategic leadership development planning',
-          icon: Calendar
+          name: 'Dashboard', 
+          href: '/dashboard',
+          description: 'Personal learning dashboard',
+          icon: Target
         }
       ]
     },
@@ -120,17 +218,21 @@ export default function Navigation() {
                 {item.dropdown ? (
                   <div 
                     className="relative"
-                    onMouseEnter={() => setServicesOpen(true)}
-                    onMouseLeave={() => setServicesOpen(false)}
+                    onMouseEnter={() => setActiveDropdown(item.name)}
+                    onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <button className="flex items-center text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
                       {item.name}
                       <ChevronDown className="ml-1 h-4 w-4" />
                     </button>
                     
-                    {servicesOpen && (
-                      <div className="absolute top-full left-0 mt-1 w-80 bg-white rounded-lg shadow-lg border border-gray-200 p-4 z-50">
-                        <div className="grid gap-3">
+                    {activeDropdown === item.name && (
+                      <div 
+                        className="nav-dropdown absolute top-full left-0 mt-1 w-80 bg-white rounded-lg shadow-lg border border-gray-200 p-4 z-50"
+                        onMouseEnter={() => setActiveDropdown(item.name)}
+                        onMouseLeave={() => setActiveDropdown(null)}
+                      >
+                        <div className="grid gap-2">
                           {item.dropdown.map((subItem) => (
                             <Link
                               key={subItem.name}
@@ -142,7 +244,7 @@ export default function Navigation() {
                                 <div className="font-medium text-gray-900 group-hover:text-blue-600">
                                   {subItem.name}
                                 </div>
-                                <div className="text-sm text-gray-500 mt-1">
+                                <div className="text-xs text-gray-500 mt-1">
                                   {subItem.description}
                                 </div>
                               </div>
@@ -155,7 +257,7 @@ export default function Navigation() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
+                    className="nav-item-hover text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -166,13 +268,15 @@ export default function Navigation() {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link href="/dashboard">
-              <Button variant="outline" size="sm" className="flow-arrow">
-                Dashboard
+            <Link href="/apest-quiz">
+              <Button variant="outline" size="sm" className="flex items-center">
+                <Target className="h-4 w-4 mr-2" />
+                Take Quiz
               </Button>
             </Link>
             <Link href="/contact">
               <Button size="sm" className="trimtab-gradient text-white border-0">
+                <Mail className="h-4 w-4 mr-2" />
                 Get Started
               </Button>
             </Link>
@@ -227,13 +331,15 @@ export default function Navigation() {
               ))}
               
               <div className="border-t border-gray-200 pt-4 mt-4 space-y-2">
-                <Link href="/dashboard" onClick={() => setIsOpen(false)}>
-                  <Button variant="outline" className="w-full flow-arrow">
-                    Dashboard
+                <Link href="/apest-quiz" onClick={() => setIsOpen(false)}>
+                  <Button variant="outline" className="w-full flex items-center justify-center">
+                    <Target className="h-4 w-4 mr-2" />
+                    Take APEST Quiz
                   </Button>
                 </Link>
                 <Link href="/contact" onClick={() => setIsOpen(false)}>
-                  <Button className="w-full trimtab-gradient text-white border-0">
+                  <Button className="w-full trimtab-gradient text-white border-0 flex items-center justify-center">
+                    <Mail className="h-4 w-4 mr-2" />
                     Get Started
                   </Button>
                 </Link>

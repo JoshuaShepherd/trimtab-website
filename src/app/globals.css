@@ -166,3 +166,40 @@
     linear-gradient(rgba(24, 87, 164, 0.1) 1px, transparent 1px);
   background-size: 20px 20px;
 }
+
+/* Navigation Enhancement Styles */
+.nav-dropdown {
+  animation: dropdown-appear 0.2s ease-out;
+  transform-origin: top;
+}
+
+@keyframes dropdown-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.nav-item-hover {
+  position: relative;
+}
+
+.nav-item-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #1857A4 0%, #4592D1 100%);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-item-hover:hover::after {
+  width: 100%;
+}
