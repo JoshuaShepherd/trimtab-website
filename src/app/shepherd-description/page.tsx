@@ -7,12 +7,8 @@ import {
   Heart, 
   Shield, 
   Users, 
-  Home, 
   CheckCircle,
-  ArrowRight,
-  Handshake,
   LifeBuoy,
-  UserCheck,
   HeartHandshake
 } from "lucide-react"
 
