@@ -21,7 +21,9 @@ import {
   ShoppingCart,
   FileText,
   Award,
-  Mail
+  Mail,
+  Eye,
+  Layers
 } from "lucide-react";
 
 export default function Navigation() {
@@ -122,6 +124,36 @@ export default function Navigation() {
       ]
     },
     { name: 'Resources', href: '/resources' },
+    {
+      name: 'Showcase',
+      href: '/showcase',
+      dropdown: [
+        { 
+          name: 'Platform Showcase', 
+          href: '/showcase',
+          description: 'All mockups and demos in one place',
+          icon: Eye
+        },
+        { 
+          name: 'Website Layouts', 
+          href: '/website-layouts',
+          description: 'Five different website approaches',
+          icon: Layers
+        },
+        { 
+          name: 'Interactive eBook', 
+          href: '/ebook-example',
+          description: 'Multi-modal APEST learning experience',
+          icon: BookOpen
+        },
+        { 
+          name: 'Enhanced Platform', 
+          href: '/ebook-example-two',
+          description: 'Advanced learning platform demo',
+          icon: Target
+        }
+      ]
+    },
     {
       name: 'Examples',
       href: '/ebook-example',

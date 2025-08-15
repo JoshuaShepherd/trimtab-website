@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Check, Puzzle, Users, Wrench } from 'lucide-react'
+import { Check, Puzzle, Users, Wrench, Eye, Layers, BookOpen } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'TrimTab - APEST Coaching & Development',
@@ -31,6 +31,25 @@ export default function Home() {
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <Link href="/contact">Talk with Tim</Link>
+              </Button>
+            </div>
+            
+            {/* Showcase Link */}
+            <div className="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-200 max-w-2xl mx-auto">
+              <div className="flex items-center justify-center space-x-3 mb-3">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                  <Eye className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900">Platform Showcase</h3>
+              </div>
+              <p className="text-gray-600 text-center mb-4">
+                Explore comprehensive mockups of APEST learning platforms and website layouts
+              </p>
+              <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600" asChild>
+                <Link href="/showcase">
+                  <Layers className="w-4 h-4 mr-2" />
+                  View All Mockups & Demos
+                </Link>
               </Button>
             </div>
           </div>
