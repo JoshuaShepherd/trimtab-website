@@ -121,7 +121,31 @@ export default function Navigation() {
         }
       ]
     },
-    { name: 'Resources', href: '/resources' }
+    { name: 'Resources', href: '/resources' },
+    {
+      name: 'Examples',
+      href: '/ebook-example',
+      dropdown: [
+        { 
+          name: 'Interactive eBook', 
+          href: '/ebook-example',
+          description: 'Multi-modal APEST learning experience',
+          icon: BookOpen
+        },
+        { 
+          name: 'APEST Assessment', 
+          href: '/apest-quiz-example',
+          description: 'Interactive assessment demo',
+          icon: Target
+        },
+        { 
+          name: 'Learning Dashboard', 
+          href: '/dashboard-example',
+          description: 'Personalized learning hub',
+          icon: GraduationCap
+        }
+      ]
+    }
   ];
 
   // Full navigation for mobile menu
@@ -162,6 +186,14 @@ export default function Navigation() {
       ]
     },
     { name: 'Resources', href: '/resources' },
+    {
+      name: 'Examples',
+      dropdown: [
+        { name: 'Interactive eBook', href: '/ebook-example', icon: BookOpen },
+        { name: 'APEST Assessment', href: '/apest-quiz-example', icon: Target },
+        { name: 'Learning Dashboard', href: '/dashboard-example', icon: GraduationCap }
+      ]
+    },
     { name: 'Shop', href: '/shop' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' }
