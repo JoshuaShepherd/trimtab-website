@@ -256,14 +256,14 @@ export default function Navigation() {
                     onMouseEnter={() => setActiveDropdown(item.name)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <button className="flex items-center text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-gray-50">
+                    <button className="flex items-center text-trimtab-gray-3 hover:text-trimtab-blue-2 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-trimtab-gray-1/30">
                       {item.name}
                       <ChevronDown className="ml-1 h-4 w-4" />
                     </button>
                     
                     {activeDropdown === item.name && (
                       <div 
-                        className="absolute top-full left-0 mt-1 w-72 bg-white rounded-lg shadow-lg border border-gray-200 p-2 z-50"
+                        className="absolute top-full left-0 mt-1 w-72 bg-white rounded-lg shadow-lg border border-trimtab-gray-2 p-2 z-50"
                         onMouseEnter={() => setActiveDropdown(item.name)}
                         onMouseLeave={() => setActiveDropdown(null)}
                       >
@@ -306,13 +306,13 @@ export default function Navigation() {
           {/* CTA Buttons - Hidden on mobile, shown on tablet and up */}
           <div className="hidden md:flex items-center space-x-3 flex-shrink-0">
             <Link href="/apest-quiz">
-              <Button variant="outline" size="sm" className="flex items-center text-xs">
+              <Button variant="outline" size="sm" className="flex items-center text-xs border-trimtab-blue-2 text-trimtab-blue-2 hover:bg-trimtab-blue-2 hover:text-white">
                 <Target className="h-3 w-3 mr-1" />
                 Quiz
               </Button>
             </Link>
             <Link href="/contact">
-              <Button size="sm" className="trimtab-gradient text-white border-0 text-xs">
+              <Button size="sm" className="trimtab-cta-gradient text-white border-0 text-xs">
                 <Mail className="h-3 w-3 mr-1" />
                 Contact
               </Button>
@@ -367,15 +367,15 @@ export default function Navigation() {
                 </div>
               ))}
               
-              <div className="border-t border-gray-200 pt-6 mt-6 space-y-3">
+              <div className="border-t border-trimtab-gray-2 pt-6 mt-6 space-y-3">
                 <Link href="/apest-quiz" onClick={() => setIsOpen(false)}>
-                  <Button variant="outline" className="w-full h-12 flex items-center justify-center text-base">
+                  <Button variant="outline" className="w-full h-12 flex items-center justify-center text-base border-trimtab-blue-2 text-trimtab-blue-2 hover:bg-trimtab-blue-2 hover:text-white">
                     <Target className="h-5 w-5 mr-2" />
                     Take APEST Quiz
                   </Button>
                 </Link>
                 <Link href="/contact" onClick={() => setIsOpen(false)}>
-                  <Button className="w-full h-12 trimtab-gradient text-white border-0 flex items-center justify-center text-base">
+                  <Button className="w-full h-12 trimtab-cta-gradient text-white border-0 flex items-center justify-center text-base">
                     <Mail className="h-5 w-5 mr-2" />
                     Get Started
                   </Button>

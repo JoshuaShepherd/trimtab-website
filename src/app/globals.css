@@ -51,68 +51,96 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.423 0.154 235.8); /* Tim's brand blue #1857A4 */
+  --primary: #4479BD; /* Primary Trimtab Blue */
   --primary-foreground: oklch(0.985 0 0);
-  --trimtab-blue: oklch(0.423 0.154 235.8); /* #1857A4 */
-  --trimtab-light-blue: oklch(0.631 0.086 233.3); /* #4592D1 */
-  --trimtab-pale-blue: oklch(0.957 0.027 233.3); /* #E3F0FF */
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  
+  /* Trimtab Logo Colors */
+  --trimtab-blue-1: #62A3D9; /* Lightest blue */
+  --trimtab-blue-2: #4479BD; /* Primary blue */
+  --trimtab-blue-3: #2E5797; /* Medium blue */
+  --trimtab-blue-4: #202C5E; /* Dark blue */
+  --trimtab-blue-5: #1B2653; /* Darkest blue */
+  
+  /* Trimtab Gray Colors */
+  --trimtab-gray-1: #D9DDE1; /* Lightest gray */
+  --trimtab-gray-2: #B0B5BB; /* Light gray */
+  --trimtab-gray-3: #7C8289; /* Medium gray */
+  --trimtab-gray-4: #4A4F55; /* Dark gray */
+  
+  /* CTA Button Colors */
+  --trimtab-green: #3dba87; /* Primary green */
+  --trimtab-green-hover: #5ed9a1; /* Green hover */
+  
+  /* APEST Symbol Colors */
+  --apest-apostle: #1b304b;
+  --apest-prophet: #2f5484;
+  --apest-evangelist: #4479bd;
+  --apest-shepherd: #6993ca;
+  --apest-teacher: #8eaed7;
+  
+  /* APEST Waypoint Colors */
+  --apest-waypoint-1: #62A3D9;
+  --apest-waypoint-2: #4e84c5;
+  --apest-waypoint-3: #2e5797;
+  --apest-waypoint-4: #202c5e;
+  
+  --secondary: var(--trimtab-gray-1);
+  --secondary-foreground: var(--trimtab-blue-4);
+  --muted: var(--trimtab-gray-1);
+  --muted-foreground: var(--trimtab-gray-3);
+  --accent: var(--trimtab-blue-1);
+  --accent-foreground: var(--trimtab-blue-5);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --border: var(--trimtab-gray-2);
+  --input: var(--trimtab-gray-1);
+  --ring: var(--trimtab-blue-2);
+  --chart-1: var(--apest-apostle);
+  --chart-2: var(--apest-prophet);
+  --chart-3: var(--apest-evangelist);
+  --chart-4: var(--apest-shepherd);
+  --chart-5: var(--apest-teacher);
   --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-foreground: var(--trimtab-blue-5);
+  --sidebar-primary: var(--trimtab-blue-4);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-accent: var(--trimtab-gray-1);
+  --sidebar-accent-foreground: var(--trimtab-blue-4);
+  --sidebar-border: var(--trimtab-gray-2);
+  --sidebar-ring: var(--trimtab-blue-2);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: var(--trimtab-blue-5);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
+  --card: var(--trimtab-blue-4);
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
+  --popover: var(--trimtab-blue-4);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
+  --primary: var(--trimtab-blue-1);
+  --primary-foreground: var(--trimtab-blue-5);
+  --secondary: var(--trimtab-gray-4);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --muted: var(--trimtab-gray-4);
+  --muted-foreground: var(--trimtab-gray-2);
+  --accent: var(--trimtab-blue-3);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
+  --border: var(--trimtab-gray-4);
+  --input: var(--trimtab-gray-4);
+  --ring: var(--trimtab-blue-1);
+  --chart-1: var(--apest-apostle);
+  --chart-2: var(--apest-prophet);
+  --chart-3: var(--apest-evangelist);
+  --chart-4: var(--apest-shepherd);
+  --chart-5: var(--apest-teacher);
+  --sidebar: var(--trimtab-blue-4);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary: var(--apest-evangelist);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent: var(--trimtab-blue-3);
   --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-border: var(--trimtab-gray-4);
+  --sidebar-ring: var(--trimtab-blue-1);
 }
 
 @layer base {
@@ -127,12 +155,67 @@
 
 /* TrimTab Custom Styles */
 .trimtab-gradient {
-  background: linear-gradient(135deg, #1857A4 0%, #4592D1 100%);
-  color: white !important; /* Ensure text is white on gradient backgrounds */
+  background: linear-gradient(135deg, var(--trimtab-blue-2) 0%, var(--trimtab-blue-1) 100%);
+  color: white !important;
 }
 
+.trimtab-gradient-dark {
+  background: linear-gradient(135deg, var(--trimtab-blue-4) 0%, var(--trimtab-blue-3) 100%);
+  color: white !important;
+}
+
+.trimtab-cta-gradient {
+  background: linear-gradient(135deg, var(--trimtab-green) 0%, var(--trimtab-green-hover) 100%);
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+.trimtab-cta-gradient:hover {
+  background: linear-gradient(135deg, var(--trimtab-green-hover) 0%, var(--trimtab-green) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(61, 186, 135, 0.3);
+}
+
+/* APEST Color Classes */
+.bg-apest-apostle { background-color: var(--apest-apostle); color: white; }
+.bg-apest-prophet { background-color: var(--apest-prophet); color: white; }
+.bg-apest-evangelist { background-color: var(--apest-evangelist); color: white; }
+.bg-apest-shepherd { background-color: var(--apest-shepherd); color: white; }
+.bg-apest-teacher { background-color: var(--apest-teacher); color: white; }
+
+.text-apest-apostle { color: var(--apest-apostle); }
+.text-apest-prophet { color: var(--apest-prophet); }
+.text-apest-evangelist { color: var(--apest-evangelist); }
+.text-apest-shepherd { color: var(--apest-shepherd); }
+.text-apest-teacher { color: var(--apest-teacher); }
+
+/* Trimtab Blue Classes */
+.bg-trimtab-blue-1 { background-color: var(--trimtab-blue-1); color: white; }
+.bg-trimtab-blue-2 { background-color: var(--trimtab-blue-2); color: white; }
+.bg-trimtab-blue-3 { background-color: var(--trimtab-blue-3); color: white; }
+.bg-trimtab-blue-4 { background-color: var(--trimtab-blue-4); color: white; }
+.bg-trimtab-blue-5 { background-color: var(--trimtab-blue-5); color: white; }
+
+.text-trimtab-blue-1 { color: var(--trimtab-blue-1); }
+.text-trimtab-blue-2 { color: var(--trimtab-blue-2); }
+.text-trimtab-blue-3 { color: var(--trimtab-blue-3); }
+.text-trimtab-blue-4 { color: var(--trimtab-blue-4); }
+.text-trimtab-blue-5 { color: var(--trimtab-blue-5); }
+
+/* Trimtab Gray Classes */
+.bg-trimtab-gray-1 { background-color: var(--trimtab-gray-1); }
+.bg-trimtab-gray-2 { background-color: var(--trimtab-gray-2); }
+.bg-trimtab-gray-3 { background-color: var(--trimtab-gray-3); color: white; }
+.bg-trimtab-gray-4 { background-color: var(--trimtab-gray-4); color: white; }
+
+.text-trimtab-gray-1 { color: var(--trimtab-gray-1); }
+.text-trimtab-gray-2 { color: var(--trimtab-gray-2); }
+.text-trimtab-gray-3 { color: var(--trimtab-gray-3); }
+.text-trimtab-gray-4 { color: var(--trimtab-gray-4); }
+
 /* Force white text on dark blue backgrounds */
-.bg-blue-600, .bg-blue-700, .bg-blue-800, .bg-blue-900 {
+.bg-blue-600, .bg-blue-700, .bg-blue-800, .bg-blue-900,
+.bg-trimtab-blue-2, .bg-trimtab-blue-3, .bg-trimtab-blue-4, .bg-trimtab-blue-5 {
   color: white;
 }
 
@@ -142,7 +225,7 @@
 
 .trimtab-card-hover:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(24, 87, 164, 0.15);
+  box-shadow: 0 8px 25px rgba(68, 121, 189, 0.15);
 }
 
 .flow-arrow {
@@ -151,7 +234,7 @@
 
 .flow-arrow::after {
   content: '→';
-  color: #4592D1;
+  color: var(--trimtab-blue-1);
   margin-left: 8px;
   transition: transform 0.2s ease;
 }
@@ -162,8 +245,8 @@
 
 .bg-grid-pattern {
   background-image: 
-    linear-gradient(90deg, rgba(24, 87, 164, 0.1) 1px, transparent 1px),
-    linear-gradient(rgba(24, 87, 164, 0.1) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(68, 121, 189, 0.1) 1px, transparent 1px),
+    linear-gradient(rgba(68, 121, 189, 0.1) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
@@ -195,7 +278,7 @@
   left: 50%;
   width: 0;
   height: 2px;
-  background: linear-gradient(135deg, #1857A4 0%, #4592D1 100%);
+  background: linear-gradient(135deg, var(--trimtab-blue-2) 0%, var(--trimtab-blue-1) 100%);
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }

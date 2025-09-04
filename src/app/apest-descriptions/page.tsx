@@ -92,44 +92,44 @@ export default function APESTDescriptions() {
     <div className="container mx-auto px-4 py-16">
       <div className="max-w-6xl mx-auto">
         <header className="mb-16 text-center">
-          <Badge variant="outline" className="mb-4 text-lg px-4 py-2">
+          <Badge variant="outline" className="mb-4 text-lg px-4 py-2 border-trimtab-blue-2 text-trimtab-blue-2">
             Five-fold Ministry
           </Badge>
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-5xl font-bold text-trimtab-blue-4 mb-6">
             APEST Descriptions
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-trimtab-gray-3 max-w-3xl mx-auto">
             Based on Ephesians 4:11-13, the APEST gifts are given to equip the saints 
             and build up the body of Christ until we all reach unity and maturity.
           </p>
         </header>
 
         <div className="mb-16">
-          <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
+          <Card className="bg-gradient-to-r from-trimtab-blue-0 to-trimtab-blue-1 border-trimtab-blue-2">
             <CardHeader>
-              <CardTitle className="text-2xl text-center">What is APEST?</CardTitle>
+              <CardTitle className="text-2xl text-center text-trimtab-blue-4">What is APEST?</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-lg text-gray-700 mb-6">
+              <p className="text-lg text-trimtab-gray-4 mb-6">
                 APEST stands for the five ministry gifts mentioned in Ephesians 4:11: 
                 <strong> Apostles, Prophets, Evangelists, Shepherds, and Teachers</strong>. 
                 These gifts work together to help the church mature and accomplish its mission.
               </p>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="text-center">
-                  <Shield className="w-10 h-10 text-blue-600 mx-auto mb-3" />
-                  <h4 className="font-semibold text-lg mb-2">Gifted by Christ</h4>
-                  <p className="text-gray-600">Each gift is given by Jesus himself</p>
+                  <Shield className="w-10 h-10 text-trimtab-blue-2 mx-auto mb-3" />
+                  <h4 className="font-semibold text-lg mb-2 text-trimtab-blue-4">Gifted by Christ</h4>
+                  <p className="text-trimtab-gray-3">Each gift is given by Jesus himself</p>
                 </div>
                 <div className="text-center">
-                  <Target className="w-10 h-10 text-blue-600 mx-auto mb-3" />
-                  <h4 className="font-semibold text-lg mb-2">For Equipping</h4>
-                  <p className="text-gray-600">To prepare God's people for service</p>
+                  <Target className="w-10 h-10 text-trimtab-blue-2 mx-auto mb-3" />
+                  <h4 className="font-semibold text-lg mb-2 text-trimtab-blue-4">For Equipping</h4>
+                  <p className="text-trimtab-gray-3">To prepare God's people for service</p>
                 </div>
                 <div className="text-center">
-                  <CheckCircle className="w-10 h-10 text-blue-600 mx-auto mb-3" />
-                  <h4 className="font-semibold text-lg mb-2">Until Maturity</h4>
-                  <p className="text-gray-600">To help us become like Christ</p>
+                  <CheckCircle className="w-10 h-10 text-trimtab-blue-2 mx-auto mb-3" />
+                  <h4 className="font-semibold text-lg mb-2 text-trimtab-blue-4">Until Maturity</h4>
+                  <p className="text-trimtab-gray-3">To help us become like Christ</p>
                 </div>
               </div>
             </CardContent>
@@ -137,39 +137,39 @@ export default function APESTDescriptions() {
         </div>
 
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">The Five APEST Gifts</h2>
+          <h2 className="text-3xl font-bold text-trimtab-blue-4 mb-8 text-center">The Five APEST Gifts</h2>
           <div className="space-y-8">
             {apestGifts.map((gift, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
+              <Card key={index} className="hover:shadow-lg transition-shadow duration-300 border-trimtab-gray-2">
                 <CardHeader>
                   <div className="flex items-start gap-6">
                     <div className="flex-shrink-0">
-                      <gift.icon className="w-16 h-16 text-blue-600" />
+                      <gift.icon className="w-16 h-16 text-trimtab-blue-2" />
                     </div>
                     <div className="flex-grow">
                       <div className="flex items-center gap-3 mb-2">
-                        <CardTitle className="text-2xl">{gift.title}</CardTitle>
-                        <Badge variant="secondary">{gift.subtitle}</Badge>
+                        <CardTitle className="text-2xl text-trimtab-blue-4">{gift.title}</CardTitle>
+                        <Badge variant="secondary" className="bg-trimtab-gray-1 text-trimtab-blue-3">{gift.subtitle}</Badge>
                       </div>
-                      <p className="text-gray-600 text-lg mb-4">{gift.description}</p>
+                      <p className="text-trimtab-gray-3 text-lg mb-4">{gift.description}</p>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h4 className="font-semibold mb-3">Key Characteristics:</h4>
+                      <h4 className="font-semibold mb-3 text-trimtab-blue-4">Key Characteristics:</h4>
                       <ul className="space-y-2">
                         {gift.characteristics.map((characteristic, idx) => (
-                          <li key={idx} className="flex items-center gap-2 text-gray-700">
-                            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                          <li key={idx} className="flex items-center gap-2 text-trimtab-gray-4">
+                            <CheckCircle className="w-4 h-4 text-trimtab-cta flex-shrink-0" />
                             {characteristic}
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div className="flex items-end justify-end">
-                      <Button asChild>
+                      <Button asChild className="trimtab-cta-gradient text-white">
                         <Link href={gift.href}>
                           Learn More About {gift.title}
                           <ArrowRight className="w-4 h-4 ml-2" />
@@ -184,20 +184,20 @@ export default function APESTDescriptions() {
         </div>
 
         <div className="mb-16">
-          <Card className="bg-gray-50">
+          <Card className="bg-trimtab-gray-0 border-trimtab-gray-2">
             <CardHeader>
-              <CardTitle className="text-2xl text-center">How APEST Gifts Work Together</CardTitle>
+              <CardTitle className="text-2xl text-center text-trimtab-blue-4">How APEST Gifts Work Together</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="text-center mb-8">
-                <p className="text-lg text-gray-700">
+                <p className="text-lg text-trimtab-gray-4">
                   Each APEST gift brings unique strengths that complement the others. 
                   Together, they create a complete ministry ecosystem.
                 </p>
               </div>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-lg font-semibold mb-4">Outward-Focused Gifts</h3>
+                  <h3 className="text-lg font-semibold mb-4 text-trimtab-blue-4">Outward-Focused Gifts</h3>
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-center gap-2">
                       <Compass className="w-4 h-4 text-blue-600" />

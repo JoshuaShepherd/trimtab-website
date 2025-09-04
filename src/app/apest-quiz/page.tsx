@@ -229,11 +229,11 @@ export default function ApestQuiz() {
 
   const getSortedResults = () => {
     const results = [
-      { name: 'Apostle', score: quizState.scores.apostle, icon: Compass, color: 'text-red-600' },
-      { name: 'Prophet', score: quizState.scores.prophet, icon: Lightbulb, color: 'text-purple-600' },
-      { name: 'Evangelist', score: quizState.scores.evangelist, icon: MessageCircle, color: 'text-green-600' },
-      { name: 'Shepherd', score: quizState.scores.shepherd, icon: Heart, color: 'text-blue-600' },
-      { name: 'Teacher', score: quizState.scores.teacher, icon: BookOpen, color: 'text-yellow-600' }
+      { name: 'Apostle', score: quizState.scores.apostle, icon: Compass, color: 'text-apest-apostle' },
+      { name: 'Prophet', score: quizState.scores.prophet, icon: Lightbulb, color: 'text-apest-prophet' },
+      { name: 'Evangelist', score: quizState.scores.evangelist, icon: MessageCircle, color: 'text-apest-evangelist' },
+      { name: 'Shepherd', score: quizState.scores.shepherd, icon: Heart, color: 'text-apest-shepherd' },
+      { name: 'Teacher', score: quizState.scores.teacher, icon: BookOpen, color: 'text-apest-teacher' }
     ].sort((a, b) => b.score - a.score);
     
     return results;
@@ -248,34 +248,34 @@ export default function ApestQuiz() {
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
           <header className="mb-16 text-center">
-            <Badge variant="outline" className="mb-4 text-lg px-4 py-2">
+            <Badge variant="outline" className="mb-4 text-lg px-4 py-2 border-trimtab-blue-2 text-trimtab-blue-2">
               APEST Discovery
             </Badge>
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-5xl font-bold text-trimtab-blue-4 mb-6">
               APEST Quiz
             </h1>
-            <p className="text-2xl font-semibold text-blue-600 mb-6">
+            <p className="text-2xl font-semibold text-trimtab-blue-2 mb-6">
               Discover Your Gifts: Take the Comprehensive APEST Quiz Today!
             </p>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-trimtab-gray-3">
               Welcome to Your Journey of Self-Discovery and Personal Development
             </p>
           </header>
 
           <div className="mb-12">
-            <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
+            <Card className="bg-gradient-to-r from-trimtab-blue-0 to-trimtab-blue-1 border-trimtab-blue-2">
               <CardHeader>
-                <CardTitle className="text-2xl text-center">Start Your Transformative Journey</CardTitle>
+                <CardTitle className="text-2xl text-center text-trimtab-blue-4">Start Your Transformative Journey</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <p className="text-lg text-gray-700">
+                <p className="text-lg text-trimtab-gray-4">
                   Start your transformative journey with our APEST Quiz. Rooted in the principles of 
                   Ephesians 4:7-16, this quiz will help you discover your unique role in the body of 
                   Christ as an <strong>Apostle</strong>, <strong>Prophet</strong>, <strong>Evangelist</strong>, 
                   <strong>Shepherd</strong>, or <strong>Teacher</strong> (APEST).
                 </p>
                 
-                <p className="text-gray-700">
+                <p className="text-trimtab-gray-4">
                   <strong>Why is this important?</strong> Because the fivefold giftings of APEST flow directly 
                   out of the life and ministry of Christ. They each play a part in representing the fullness 
                   of who Christ is, and what he cares about. When you discover your APEST gifting, you not 
@@ -287,18 +287,18 @@ export default function ApestQuiz() {
           </div>
 
           <div className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+            <h2 className="text-2xl font-bold text-trimtab-blue-4 mb-6 text-center">
               What You Can Expect from This 80-Question Journey:
             </h2>
             
             <div className="grid md:grid-cols-3 gap-6">
               <Card>
                 <CardHeader>
-                  <Target className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                  <CardTitle className="text-center">In-depth Analysis</CardTitle>
+                  <Target className="w-8 h-8 text-trimtab-blue-2 mx-auto mb-2" />
+                  <CardTitle className="text-center text-trimtab-blue-4">In-depth Analysis</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-700 text-sm text-center">
+                  <p className="text-trimtab-gray-3 text-sm text-center">
                     Each question is crafted to peel back the layers of your fivefold gifting, 
                     revealing the unique contours of your Christ-given potential.
                   </p>
@@ -307,11 +307,11 @@ export default function ApestQuiz() {
 
               <Card>
                 <CardHeader>
-                  <CheckCircle className="w-8 h-8 text-green-600 mx-auto mb-2" />
-                  <CardTitle className="text-center">Clarity of Purpose</CardTitle>
+                  <CheckCircle className="w-8 h-8 text-trimtab-cta mx-auto mb-2" />
+                  <CardTitle className="text-center text-trimtab-blue-4">Clarity of Purpose</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-700 text-sm text-center">
+                  <p className="text-trimtab-gray-3 text-sm text-center">
                     By identifying your primary and secondary APEST giftings, you're uncovering 
                     your specific calling within the church and beyond.
                   </p>
@@ -320,11 +320,11 @@ export default function ApestQuiz() {
 
               <Card>
                 <CardHeader>
-                  <ArrowRight className="w-8 h-8 text-purple-600 mx-auto mb-2" />
-                  <CardTitle className="text-center">Roadmap for Growth</CardTitle>
+                  <ArrowRight className="w-8 h-8 text-apest-prophet mx-auto mb-2" />
+                  <CardTitle className="text-center text-trimtab-blue-4">Roadmap for Growth</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-700 text-sm text-center">
+                  <p className="text-trimtab-gray-3 text-sm text-center">
                     Understanding your APEST profile is the first step. The real journey begins 
                     as you start applying these insights to your life and ministry.
                   </p>
@@ -334,22 +334,22 @@ export default function ApestQuiz() {
           </div>
 
           <div className="mb-12">
-            <Card className="bg-yellow-50 border-yellow-200">
+            <Card className="bg-trimtab-waypoint border-trimtab-waypoint-border">
               <CardHeader>
-                <CardTitle className="text-xl text-center">Instructions for Taking the APEST Quiz:</CardTitle>
+                <CardTitle className="text-xl text-center text-trimtab-blue-4">Instructions for Taking the APEST Quiz:</CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3 text-gray-700">
+                <ul className="space-y-3 text-trimtab-gray-4">
                   <li className="flex items-start gap-2">
-                    <Clock className="w-5 h-5 text-yellow-600 mt-1 flex-shrink-0" />
+                    <Clock className="w-5 h-5 text-trimtab-blue-3 mt-1 flex-shrink-0" />
                     Set aside uninterrupted time to ensure thoughtful and honest responses.
                   </li>
                   <li className="flex items-start gap-2">
-                    <Users className="w-5 h-5 text-yellow-600 mt-1 flex-shrink-0" />
+                    <Users className="w-5 h-5 text-trimtab-blue-3 mt-1 flex-shrink-0" />
                     Answer each question based on your natural preferences and not how you think others expect you to respond.
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-yellow-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-trimtab-blue-3 mt-1 flex-shrink-0" />
                     There are no right or wrong answers, only insights into your unique gifting and makeup.
                   </li>
                 </ul>
@@ -358,7 +358,7 @@ export default function ApestQuiz() {
           </div>
 
           <div className="text-center">
-            <p className="text-lg text-gray-700 mb-8">
+            <p className="text-lg text-trimtab-gray-4 mb-8">
               Embrace this opportunity to discover the gifts that Christ has given you, and step 
               confidently into your role as a representative of Christ's life-giving ministry. 
               Your journey of self-discovery and personal growth begins now!
@@ -367,7 +367,7 @@ export default function ApestQuiz() {
             <Button 
               size="lg" 
               onClick={startQuiz}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xl px-8 py-4 h-auto"
+              className="trimtab-cta-gradient text-white text-xl px-8 py-4 h-auto"
             >
               Ready to Discover Your APEST Profile? Start the Quiz!
               <ArrowRight className="w-6 h-6 ml-2" />
@@ -387,17 +387,17 @@ export default function ApestQuiz() {
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
           <header className="mb-12 text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl font-bold text-trimtab-blue-4 mb-6">
               Your APEST Quiz Results
             </h1>
           </header>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Your Scores:</h2>
+              <h2 className="text-2xl font-bold text-trimtab-blue-4 mb-6">Your Scores:</h2>
               <div className="space-y-3">
                 {results.map((result, index) => (
-                  <div key={result.name} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div key={result.name} className="flex items-center justify-between p-3 bg-trimtab-gray-0 rounded-lg border border-trimtab-gray-2">
                     <div className="flex items-center gap-3">
                       <span className="font-semibold text-gray-600">{index + 1}.</span>
                       <result.icon className={`w-5 h-5 ${result.color}`} />

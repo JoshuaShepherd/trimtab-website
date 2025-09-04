@@ -123,8 +123,8 @@ export default function Blog() {
   return (
     <div className="container mx-auto px-4 py-16">
       <header className="text-center mb-16">
-        <h1 className="text-5xl font-bold text-gray-900 mb-6">APEST Insights & Resources</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <h1 className="text-5xl font-bold text-trimtab-blue-4 mb-6">APEST Insights & Resources</h1>
+        <p className="text-xl text-trimtab-gray-3 max-w-3xl mx-auto">
           Explore practical insights on APEST giftings, spiritual development, and growing 
           in Christ-like maturity through the fivefold ministry gifts.
         </p>
@@ -132,18 +132,18 @@ export default function Blog() {
       
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
         {posts.map((post) => (
-          <Card key={post.slug} className="group hover:shadow-lg transition-shadow">
+          <Card key={post.slug} className="group hover:shadow-lg transition-shadow border-trimtab-gray-2">
             <CardHeader>
               <CardTitle className="line-clamp-2">
                 <Link 
                   href={`/blog/${post.slug}`}
-                  className="hover:text-blue-600 transition-colors"
+                  className="hover:text-trimtab-blue-2 transition-colors text-trimtab-blue-4"
                 >
                   {post.title}
                 </Link>
               </CardTitle>
               {post.date && (
-                <time className="text-sm text-gray-500">
+                <time className="text-sm text-trimtab-gray-2">
                   {new Date(post.date).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long', 
@@ -153,8 +153,8 @@ export default function Blog() {
               )}
             </CardHeader>
             <CardContent>
-              <p className="text-gray-600 line-clamp-3 mb-4">{post.excerpt}</p>
-              <Button variant="outline" size="sm" asChild>
+              <p className="text-trimtab-gray-3 line-clamp-3 mb-4">{post.excerpt}</p>
+              <Button variant="outline" size="sm" asChild className="border-trimtab-blue-2 text-trimtab-blue-2 hover:bg-trimtab-blue-0">
                 <Link href={`/blog/${post.slug}`}>
                   Read More
                 </Link>
@@ -165,12 +165,12 @@ export default function Blog() {
       </div>
       
       <div className="text-center mt-16">
-        <div className="bg-blue-50 rounded-lg p-8 max-w-2xl mx-auto">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Discover Your APEST Giftings?</h3>
-          <p className="text-gray-600 mb-6">
+        <div className="bg-trimtab-blue-0 rounded-lg p-8 max-w-2xl mx-auto border border-trimtab-blue-1">
+          <h3 className="text-2xl font-bold text-trimtab-blue-4 mb-4">Ready to Discover Your APEST Giftings?</h3>
+          <p className="text-trimtab-gray-3 mb-6">
             Take our free APEST quiz to identify your primary gifting and get personalized next steps.
           </p>
-          <Button size="lg" asChild>
+          <Button size="lg" asChild className="trimtab-cta-gradient text-white">
             <Link href="/apest-quiz">Take the APEST Quiz</Link>
           </Button>
         </div>

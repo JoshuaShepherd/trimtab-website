@@ -148,16 +148,18 @@ export default function EBookLandingPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link href="/ebook/chapter/1">
+                <Link href="/ebook/webbook">
                   <Button size="lg" className="trimtab-gradient text-white border-0">
                     <Play className="mr-2 h-5 w-5" />
-                    Start Learning Journey
+                    Start Interactive WebBook
                   </Button>
                 </Link>
-                <Button size="lg" variant="outline" className="border-blue-200 text-blue-600 hover:bg-blue-50">
-                  <Download className="mr-2 h-5 w-5" />
-                  Download PDF Version
-                </Button>
+                <Link href="/ebook/skus">
+                  <Button size="lg" variant="outline" className="border-blue-200 text-blue-600 hover:bg-blue-50">
+                    <Download className="mr-2 h-5 w-5" />
+                    Choose Your Package
+                  </Button>
+                </Link>
               </div>
               
               <div className="flex items-center space-x-6 text-sm text-gray-600">
@@ -356,6 +358,124 @@ export default function EBookLandingPage() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Options */}
+      <section className="py-20 bg-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Choose Your Learning Experience
+            </h2>
+            <p className="text-xl text-gray-600">
+              From free introduction to comprehensive team training
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {/* Lite */}
+            <Card className="relative border-green-200 bg-green-50">
+              <CardHeader className="text-center">
+                <Badge className="bg-green-500 text-white mb-2">Free</Badge>
+                <CardTitle className="text-lg">Lite Guide</CardTitle>
+                <div className="text-2xl font-bold text-green-600">$0</div>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm space-y-2 mb-4">
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />20-page PDF guide</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />3 practice exercises</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Email-gated access</li>
+                </ul>
+                <Link href="/ebook/skus">
+                  <Button className="w-full bg-green-600 hover:bg-green-700">Get Free Guide</Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Standard */}
+            <Card>
+              <CardHeader className="text-center">
+                <CardTitle className="text-lg">Standard</CardTitle>
+                <div className="text-2xl font-bold">$9</div>
+                <div className="text-sm text-gray-500 line-through">$19</div>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm space-y-2 mb-4">
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Complete ebook</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />EPUB + PDF formats</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Lifetime access</li>
+                </ul>
+                <Link href="/ebook/skus">
+                  <Button className="w-full">Get Full Book</Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Pro - Featured */}
+            <Card className="relative border-2 border-blue-500 shadow-xl">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <Badge className="bg-blue-500 text-white px-4 py-1">Most Popular</Badge>
+              </div>
+              <CardHeader className="text-center">
+                <CardTitle className="text-lg">Pro WebBook</CardTitle>
+                <div className="text-2xl font-bold text-blue-600">$39</div>
+                <div className="text-sm text-gray-500 line-through">$59</div>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm space-y-2 mb-4">
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Interactive WebBook</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Ask Tim AI helper</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Progress tracking</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Chapter quizzes</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />3 bonus videos</li>
+                </ul>
+                <Link href="/ebook/skus">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700">Unlock Pro Experience</Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Deluxe */}
+            <Card>
+              <CardHeader className="text-center">
+                <CardTitle className="text-lg">Deluxe Bundle</CardTitle>
+                <div className="text-2xl font-bold">$89</div>
+                <div className="text-sm text-gray-500 line-through">$112 value</div>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm space-y-2 mb-4">
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Print book</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />All digital formats</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Coaching voucher</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Bonus materials</li>
+                </ul>
+                <Link href="/ebook/skus">
+                  <Button className="w-full">Complete Package</Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Team */}
+            <Card>
+              <CardHeader className="text-center">
+                <CardTitle className="text-lg">Team Pack</CardTitle>
+                <div className="text-2xl font-bold">$249</div>
+                <div className="text-sm text-gray-500">10 seats</div>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm space-y-2 mb-4">
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />10 WebBook licenses</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Team dashboard</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Facilitator guide</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Group session</li>
+                </ul>
+                <Link href="/ebook/skus">
+                  <Button className="w-full">Equip Your Team</Button>
+                </Link>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
