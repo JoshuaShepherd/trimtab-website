@@ -340,24 +340,50 @@ export default function SiteMap() {
                   </CardHeader>
                   <CardContent>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                      {category.pages.map((page, pageIndex) => (
-                        <Link
-                          key={pageIndex}
-                          href={page.path}
-                          className="group border border-trimtab-gray-1 rounded-lg p-4 hover:bg-trimtab-blue-0 hover:border-trimtab-blue-2 transition-all"
-                        >
-                          <div className="flex items-start justify-between mb-2">
-                            <h3 className="font-semibold text-trimtab-blue-4 group-hover:text-trimtab-cta transition-colors">
-                              {page.name}
-                            </h3>
-                            <ExternalLink className="w-4 h-4 text-trimtab-gray-2 group-hover:text-trimtab-blue-2 transition-colors flex-shrink-0" />
-                          </div>
-                          <p className="text-sm text-trimtab-gray-3 mb-2">{page.description}</p>
-                          <code className="text-xs bg-gray-100 px-2 py-1 rounded text-trimtab-gray-2">
-                            {page.path}
-                          </code>
-                        </Link>
-                      ))}
+                      {category.pages.map((page, pageIndex) => {
+                        const isDynamicRoute = page.path.includes('[') && page.path.includes(']');
+                        
+                        if (isDynamicRoute) {
+                          return (
+                            <div
+                              key={pageIndex}
+                              className="group border border-trimtab-gray-1 rounded-lg p-4 hover:bg-trimtab-blue-0 hover:border-trimtab-blue-2 transition-all"
+                            >
+                              <div className="flex items-start justify-between mb-2">
+                                <h3 className="font-semibold text-trimtab-blue-4 group-hover:text-trimtab-cta transition-colors">
+                                  {page.name}
+                                </h3>
+                                <div className="w-4 h-4 text-trimtab-gray-2 group-hover:text-trimtab-blue-2 transition-colors flex-shrink-0 border border-trimtab-gray-2 rounded text-xs flex items-center justify-center">
+                                  ?
+                                </div>
+                              </div>
+                              <p className="text-sm text-trimtab-gray-3 mb-2">{page.description}</p>
+                              <code className="text-xs bg-gray-100 px-2 py-1 rounded text-trimtab-gray-2">
+                                {page.path}
+                              </code>
+                            </div>
+                          );
+                        }
+                        
+                        return (
+                          <Link
+                            key={pageIndex}
+                            href={page.path}
+                            className="group border border-trimtab-gray-1 rounded-lg p-4 hover:bg-trimtab-blue-0 hover:border-trimtab-blue-2 transition-all"
+                          >
+                            <div className="flex items-start justify-between mb-2">
+                              <h3 className="font-semibold text-trimtab-blue-4 group-hover:text-trimtab-cta transition-colors">
+                                {page.name}
+                              </h3>
+                              <ExternalLink className="w-4 h-4 text-trimtab-gray-2 group-hover:text-trimtab-blue-2 transition-colors flex-shrink-0" />
+                            </div>
+                            <p className="text-sm text-trimtab-gray-3 mb-2">{page.description}</p>
+                            <code className="text-xs bg-gray-100 px-2 py-1 rounded text-trimtab-gray-2">
+                              {page.path}
+                            </code>
+                          </Link>
+                        );
+                      })}
                     </div>
                   </CardContent>
                 </Card>

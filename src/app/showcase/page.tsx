@@ -262,7 +262,7 @@ export default function ShowcasePage() {
           <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-8">
             <div className="text-center">
               <div className="text-3xl font-bold">{contentStats.totalPages}</div>
-              <div className="text-blue-200">Total Pages</div>
+              <div className="text-black">Total Pages</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold">{contentStats.websiteLayouts}</div>

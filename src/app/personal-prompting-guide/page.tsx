@@ -1,60 +1,206 @@
-import { Metadata } from 'next'
+'use client'
+
+import Image from 'next/image'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Textarea } from "@/components/ui/textarea"
+import { useState } from 'react'
 import { 
-  Code2, 
   GitBranch,
   FileText,
   Play,
-  Coffee,
   Lightbulb,
   Shield,
-  Rocket,
   Heart,
-  Star,
   CheckCircle,
-  ArrowRight,
   Copy,
-  Download,
-  Settings,
-  Search,
   Edit,
   Save,
   Folder,
-  Terminal,
-  Globe,
-  Zap,
   BookOpen,
   MessageSquare,
-  HelpCircle,
-  AlertCircle,
   Info,
-  Sparkles,
   Brain,
-  Target,
   Users,
   Wrench,
   Key,
-  Lock,
-  Unlock,
-  RefreshCw,
-  Database,
-  Server,
+  Menu,
+  X,
+  ChevronRight,
+  Eye,
+  TrendingUp,
+  Filter,
+  RotateCw,
+  Split,
+  CheckSquare,
+  AlertTriangle,
+  Maximize2,
   Layout,
   Palette,
-  Type,
-  Image,
-  Link
+  FileImage,
+  Settings
 } from "lucide-react"
 
-export const metadata: Metadata = {
-  title: "Personal Prompting Guide - Tim's Development Reference",
-  description: "Your complete guide to working with VS Code, GitHub Copilot, and the React/Next.js environment - designed specifically for Tim Catchim."
-}
+export default function PromptingDashboard() {
+  const [activeSection, setActiveSection] = useState('advanced-techniques')
+  const [sidebarOpen, setSidebarOpen] = useState(true)
 
-export default function PersonalPromptingGuide() {
+  const sidebarSections = [
+    {
+      id: 'advanced-techniques',
+      title: 'Advanced Prompting Techniques',
+      icon: Brain,
+      description: 'Professional-grade prompting patterns'
+    },
+    {
+      id: 'quick-start',
+      title: 'Quick Start Commands',
+      icon: Play,
+      description: 'Essential development commands'
+    },
+    {
+      id: 'copilot-instructions',
+      title: 'Copilot Instructions Guide',
+      icon: FileText,
+      description: 'Understanding your secret weapon'
+    },
+    {
+      id: 'file-structure',
+      title: 'File Structure Guide',
+      icon: Folder,
+      description: 'Website organization explained'
+    },
+    {
+      id: 'prompt-library',
+      title: 'Prompt Library',
+      icon: MessageSquare,
+      description: 'Ready-to-use prompts'
+    },
+    {
+      id: 'development-concepts',
+      title: 'Development Concepts',
+      icon: BookOpen,
+      description: 'Key concepts explained simply'
+    },
+    {
+      id: 'copilot-tips',
+      title: 'Copilot Best Practices',
+      icon: Lightbulb,
+      description: 'Getting the best results'
+    },
+    {
+      id: 'troubleshooting',
+      title: 'Troubleshooting Guide',
+      icon: Wrench,
+      description: 'Common issues and solutions'
+    },
+    {
+      id: 'github-basics',
+      title: 'GitHub Basics',
+      icon: GitBranch,
+      description: 'Version control explained'
+    },
+    {
+      id: 'keyword-toolkit',
+      title: 'Keyword Toolkit',
+      icon: Key,
+      description: 'Essential terminology'
+    }
+  ]
+
+  const advancedTechniques = [
+    {
+      id: 1,
+      title: 'The "Rewrite Me" Move',
+      icon: RotateCw,
+      pattern: '"Act as a prompt engineer and rewrite what I\'m about to say so it\'s clearer/stronger/more detailed."',
+      why: 'Takes advantage of the model\'s ability to meta-process your raw input. It instantly upgrades sloppy, half-baked prompts into structured ones without needing you to learn "prompt grammar."',
+      failsafe: 'Ensures that even if you say something vague, you can force the system to clarify before execution.',
+      example: 'Instead of "make my course better" → AI rewrites to "Create a comprehensive improvement plan for my APEST course including content updates, engagement strategies, and assessment methods."'
+    },
+    {
+      id: 2,
+      title: 'Persona Prompting',
+      icon: Users,
+      pattern: '"Act as [role]." E.g., "Act as a skeptical donor," "Act as a futurist strategist," or "Act as a prompt engineer."',
+      why: 'Anchors the model\'s tone, perspective, and heuristics.',
+      failsafe: 'Guarantees that the output is "fit for audience" rather than generic. Especially helpful for role-play, testing, or creative brainstorming.',
+      example: '"Act as a ministry leader evaluating APEST implementation" gives you practical, leadership-focused insights rather than academic theory.'
+    },
+    {
+      id: 3,
+      title: 'The Dual Pass (Draft + Critic)',
+      icon: Eye,
+      pattern: '"First give me a draft. Then, in a second step, critique your own work as if you were an editor/consultant."',
+      why: 'Models are stronger when they play both builder and evaluator.',
+      failsafe: 'Forces quality control inside the AI itself, so you don\'t have to catch every weakness.',
+      example: 'Get both a course outline AND a critical analysis of potential gaps or improvements.'
+    },
+    {
+      id: 4,
+      title: 'Structure by Checklist',
+      icon: CheckSquare,
+      pattern: '"Answer in a checklist with 3 sections: [A], [B], [C]. Don\'t skip."',
+      why: 'Humans drift, models drift. Checklists prevent omissions.',
+      failsafe: 'Ensures coverage, consistency, and easy-to-digest formatting.',
+      example: 'Perfect for course planning, assessment creation, or systematic APEST implementation steps.'
+    },
+    {
+      id: 5,
+      title: 'The "Don\'t Hallucinate" Guardrail',
+      icon: Shield,
+      pattern: '"If you don\'t know, say \'I don\'t know.\' Do not invent."',
+      why: 'It\'s a simple override to reduce the most dangerous failure mode: confident nonsense.',
+      failsafe: 'Turns hallucination risk into a controlled "shrug."',
+      example: 'Crucial when asking about specific ministry contexts, biblical references, or technical implementation details.'
+    },
+    {
+      id: 6,
+      title: 'The "Two Voices" Trick',
+      icon: Split,
+      pattern: '"Respond twice: once in plain, practical English for a lay audience, once in technical depth for experts."',
+      why: 'Forces dual translation — clarity + rigor.',
+      failsafe: 'Prevents over-jargon OR oversimplification dominating the answer.',
+      example: 'Perfect for APEST content that needs both pastoral accessibility and scholarly depth.'
+    },
+    {
+      id: 7,
+      title: 'Scenario Stress-Testing',
+      icon: AlertTriangle,
+      pattern: '"What would break this plan? List edge cases or reasons it might fail."',
+      why: 'Models are great at generating blind spots when you ask for them.',
+      failsafe: 'Moves from "only positive output" to realistic risk assessment.',
+      example: 'Test your APEST implementation plans, course structures, or ministry strategies for potential pitfalls.'
+    },
+    {
+      id: 8,
+      title: 'Iterative Compression/Expansion',
+      icon: Maximize2,
+      pattern: '"Summarize this in 50 words." → "Now expand to 1,000 words with examples."',
+      why: 'Cycling between compression and expansion exposes missing logic.',
+      failsafe: 'Produces layered documentation — quick elevator pitch + deep dive.',
+      example: 'Create both tweet-length APEST insights and comprehensive teaching materials from the same core idea.'
+    },
+    {
+      id: 9,
+      title: 'Meta-Learning Prompt',
+      icon: TrendingUp,
+      pattern: '"Tell me what\'s unclear about my request. Suggest how I could reframe it for better results."',
+      why: 'You don\'t know what you don\'t know. The model can coach your prompt-writing.',
+      failsafe: 'Builds a virtuous cycle of better inputs without formal training.',
+      example: 'Let AI teach you to be a better prompter for ministry and platform development tasks.'
+    },
+    {
+      id: 10,
+      title: 'The "Split Channels" Move',
+      icon: Filter,
+      pattern: '"Give me a draft answer. Then separately list 3 alternative directions I could have asked you to take."',
+      why: 'Expands your range of options.',
+      failsafe: 'Ensures you don\'t anchor prematurely to one mediocre output.',
+      example: 'Discover multiple approaches to APEST teaching, course development, or platform features you hadn\'t considered.'
+    }
+  ]
+
   const quickStartCommands = [
     {
       command: "npm run dev",
@@ -76,7 +222,40 @@ export default function PersonalPromptingGuide() {
       description: "Stages all changes - like putting papers in an envelope",
       when: "Before committing your changes"
     }
-  ];
+  ]
+
+  const fileStructureGuide = [
+    {
+      path: "src/app/",
+      description: "Your main pages live here - each folder becomes a URL",
+      example: "src/app/about/ becomes yoursite.com/about",
+      icon: Folder
+    },
+    {
+      path: "src/components/",
+      description: "Reusable pieces like buttons, cards, forms",
+      example: "Button component used across multiple pages",
+      icon: Layout
+    },
+    {
+      path: "src/components/ui/",
+      description: "Pre-built beautiful components from shadcn/ui",
+      example: "Professional buttons, forms, cards already styled",
+      icon: Palette
+    },
+    {
+      path: "public/",
+      description: "Images, PDFs, and files people can download",
+      example: "Course materials, profile photos, resources",
+      icon: FileImage
+    },
+    {
+      path: "src/lib/",
+      description: "Helper functions and configurations (don't worry about this)",
+      example: "Behind-the-scenes code that makes things work",
+      icon: Settings
+    }
+  ]
 
   const keyPrompts = [
     {
@@ -115,228 +294,85 @@ export default function PersonalPromptingGuide() {
         "Set up a workflow for publishing [content type]"
       ]
     }
-  ];
+  ]
 
-  const fileStructureGuide = [
-    {
-      path: "src/app/",
-      description: "Your main pages live here - each folder becomes a URL",
-      example: "src/app/about/ becomes yoursite.com/about",
-      icon: Folder
-    },
-    {
-      path: "src/components/",
-      description: "Reusable pieces like buttons, cards, forms",
-      example: "Button component used across multiple pages",
-      icon: Layout
-    },
-    {
-      path: "src/components/ui/",
-      description: "Pre-built beautiful components from shadcn/ui",
-      example: "Professional buttons, forms, cards already styled",
-      icon: Palette
-    },
-    {
-      path: "public/",
-      description: "Images, PDFs, and files people can download",
-      example: "Course materials, profile photos, resources",
-      icon: Image
-    },
-    {
-      path: "src/lib/",
-      description: "Helper functions and configurations (don't worry about this)",
-      example: "Behind-the-scenes code that makes things work",
-      icon: Settings
-    }
-  ];
-
-  const developmentConcepts = [
-    {
-      term: "Component",
-      definition: "Like a LEGO block - a reusable piece of your website",
-      example: "A 'Course Card' component shows course info the same way everywhere",
-      analogy: "Like having a template for how to display each course"
-    },
-    {
-      term: "Props",
-      definition: "Information you pass to a component to customize it",
-      example: "Giving the Course Card the course title, description, and price",
-      analogy: "Like filling in the blanks on a template"
-    },
-    {
-      term: "State",
-      definition: "Information that can change (like form inputs or toggles)",
-      example: "Whether a menu is open/closed, what's typed in a search box",
-      analogy: "Like the current state of your TV - on/off, volume level, channel"
-    },
-    {
-      term: "Responsive Design",
-      definition: "Your website looks good on phones, tablets, and computers",
-      example: "Course grid shows 3 columns on desktop, 1 on mobile",
-      analogy: "Like text that automatically gets bigger when you need reading glasses"
-    },
-    {
-      term: "API",
-      definition: "A way for your website to get information from other services",
-      example: "Getting course enrollment numbers, user profiles, payment status",
-      analogy: "Like having a secretary who fetches information from different departments"
-    }
-  ];
-
-  const copilotTips = [
-    {
-      tip: "Be Specific About Context",
-      explanation: "Tell Copilot what you're working on and what you want to achieve",
-      good: "Create a course enrollment button for the APEST Leadership course that shows the price and redirects to checkout",
-      bad: "Make a button"
-    },
-    {
-      tip: "Mention Your Brand",
-      explanation: "Copilot knows about your Trimtab colors and APEST themes from the instructions",
-      good: "Style this section with Trimtab brand colors and APEST ministry focus",
-      bad: "Make it look nice"
-    },
-    {
-      tip: "Ask for Explanations",
-      explanation: "Don't hesitate to ask Copilot to explain what it's doing",
-      good: "Explain what this code does and why you structured it this way",
-      bad: "Just accepting code you don't understand"
-    },
-    {
-      tip: "Request Alternatives",
-      explanation: "Ask for different approaches if the first solution doesn't feel right",
-      good: "Show me 3 different ways to layout this course information",
-      bad: "Settling for the first option"
-    }
-  ];
-
-  const reassurancePoints = [
-    {
-      icon: Shield,
-      title: "You Can't Break Anything",
-      description: "Git version control means you can always go back to a working version. It's like having infinite 'undo' buttons."
-    },
-    {
-      icon: Heart,
-      title: "Your Content Skills Still Matter Most",
-      description: "This is just a new way to publish your APEST wisdom. Your expertise in ministry and leadership is what makes the platform valuable."
-    },
-    {
-      icon: Lightbulb,
-      title: "Copilot Does the Heavy Lifting",
-      description: "You describe what you want in plain English, Copilot writes the code. It's like having a technical translator."
-    },
-    {
-      icon: Coffee,
-      title: "Start Small, Build Confidence",
-      description: "Begin with simple changes like updating text or adding images. As you get comfortable, you can try bigger modifications."
-    }
-  ];
-
-  const troubleshootingGuide = [
-    {
-      problem: "Website won't load after changes",
-      solution: "Check the terminal for red error messages. Usually it's a missing comma or bracket - Copilot can fix it.",
-      prevention: "Always run 'npm run dev' to catch errors early"
-    },
-    {
-      problem: "Changes aren't showing up",
-      solution: "Make sure you saved the file (Cmd+S) and the dev server is running",
-      prevention: "VS Code auto-saves, but double-check the file tab doesn't have a white dot"
-    },
-    {
-      problem: "Too many files changed",
-      solution: "Use 'git status' to see what changed. You can reset unwanted changes with Copilot's help",
-      prevention: "Make small changes and test frequently"
-    },
-    {
-      problem: "Can't find where to edit something",
-      solution: "Use VS Code's search (Cmd+Shift+F) to find text that appears on the page",
-      prevention: "Learn the file structure - most content is in src/app/"
-    }
-  ];
-
-  return (
-    <div className="container mx-auto px-4 py-16">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Brain className="w-8 h-8 text-trimtab-cta" />
-            <h1 className="text-4xl font-bold text-trimtab-blue-4">
-              Tim's Personal Prompting Guide
-            </h1>
-            <Sparkles className="w-8 h-8 text-trimtab-cta" />
-          </div>
-          <p className="text-xl text-trimtab-gray-3 max-w-3xl mx-auto">
-            Your complete reference for working with VS Code, GitHub Copilot, and your APEST platform. 
-            This is your safe space to learn, experiment, and create without fear.
-          </p>
-          <div className="flex items-center justify-center gap-4 mt-6">
-            <Badge className="bg-green-500 text-white">
-              <CheckCircle className="w-4 h-4 mr-2" />
-              Beginner Friendly
-            </Badge>
-            <Badge className="bg-blue-500 text-white">
-              <Shield className="w-4 h-4 mr-2" />
-              Safe to Experiment
-            </Badge>
-            <Badge className="bg-purple-500 text-white">
-              <Rocket className="w-4 h-4 mr-2" />
-              Unlimited Potential
-            </Badge>
-          </div>
-        </div>
-
-        {/* Reassurance Section */}
-        <div className="mb-12">
-          <Card className="border-trimtab-gray-2 bg-gradient-to-r from-green-50 to-blue-50">
-            <CardHeader>
-              <CardTitle className="text-2xl text-trimtab-blue-4 text-center flex items-center justify-center">
-                <Heart className="w-6 h-6 mr-3 text-red-500" />
-                First, Take a Deep Breath
-                <Heart className="w-6 h-6 ml-3 text-red-500" />
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-2 gap-6">
-                {reassurancePoints.map((point, index) => {
-                  const IconComponent = point.icon;
-                  return (
-                    <div key={index} className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
-                        <IconComponent className="w-6 h-6 text-trimtab-cta" />
+  const renderSection = () => {
+    switch (activeSection) {
+      case 'advanced-techniques':
+        return (
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-3xl font-bold text-trimtab-blue-4 mb-4 flex items-center">
+                <Brain className="w-8 h-8 mr-3" />
+                Advanced Prompting Techniques
+              </h2>
+              <p className="text-lg text-trimtab-gray-3 mb-8">
+                Professional-grade prompting patterns that will transform how you work with AI. 
+                These are the techniques that separate good prompts from great ones.
+              </p>
+            </div>
+            
+            <div className="grid gap-6">
+              {advancedTechniques.map((technique) => {
+                const IconComponent = technique.icon;
+                return (
+                  <Card key={technique.id} className="border-trimtab-gray-2 hover:shadow-lg transition-shadow">
+                    <CardHeader>
+                      <CardTitle className="text-xl text-trimtab-blue-4 flex items-center">
+                        <IconComponent className="w-6 h-6 mr-3 text-trimtab-cta" />
+                        {technique.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="bg-gray-50 p-4 rounded-lg">
+                        <h4 className="font-semibold text-trimtab-blue-4 mb-2">Pattern:</h4>
+                        <p className="text-trimtab-gray-3 italic">{technique.pattern}</p>
                       </div>
+                      
                       <div>
-                        <h3 className="font-semibold text-trimtab-blue-4 mb-2">{point.title}</h3>
-                        <p className="text-trimtab-gray-3">{point.description}</p>
+                        <h4 className="font-semibold text-trimtab-blue-4 mb-2">Why It Works:</h4>
+                        <p className="text-trimtab-gray-3">{technique.why}</p>
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Quick Start Section */}
-        <div className="mb-12">
-          <Card className="border-trimtab-gray-2">
-            <CardHeader>
-              <CardTitle className="text-2xl text-trimtab-blue-4 flex items-center">
-                <Play className="w-6 h-6 mr-3" />
-                Quick Start: Essential Commands
-              </CardTitle>
-              <p className="text-trimtab-gray-3">
+                      
+                      <div>
+                        <h4 className="font-semibold text-trimtab-blue-4 mb-2">Failsafe:</h4>
+                        <p className="text-trimtab-gray-3">{technique.failsafe}</p>
+                      </div>
+                      
+                      <div className="bg-blue-50 border border-blue-200 p-4 rounded-lg">
+                        <h4 className="font-semibold text-trimtab-blue-4 mb-2 flex items-center">
+                          <Lightbulb className="w-4 h-4 mr-2" />
+                          Example:
+                        </h4>
+                        <p className="text-trimtab-gray-3">{technique.example}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+        );
+      
+      case 'quick-start':
+        return (
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-3xl font-bold text-trimtab-blue-4 mb-4 flex items-center">
+                <Play className="w-8 h-8 mr-3" />
+                Quick Start Commands
+              </h2>
+              <p className="text-lg text-trimtab-gray-3 mb-8">
                 These are the four commands you'll use 90% of the time. Think of them as your basic tools.
               </p>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {quickStartCommands.map((cmd, index) => (
-                  <div key={index} className="border border-trimtab-gray-1 rounded-lg p-4 hover:bg-trimtab-blue-0 transition-colors">
+            </div>
+            
+            <div className="space-y-4">
+              {quickStartCommands.map((cmd, index) => (
+                <Card key={index} className="border-trimtab-gray-1 hover:bg-trimtab-blue-0 transition-colors">
+                  <CardContent className="p-6">
                     <div className="flex items-start justify-between mb-2">
-                      <code className="bg-gray-100 px-3 py-1 rounded text-trimtab-blue-4 font-mono">
+                      <code className="bg-gray-100 px-3 py-1 rounded text-trimtab-blue-4 font-mono text-lg">
                         {cmd.command}
                       </code>
                       <Button size="sm" variant="ghost" className="text-trimtab-blue-2 hover:bg-trimtab-blue-0">
@@ -345,26 +381,107 @@ export default function PersonalPromptingGuide() {
                     </div>
                     <p className="text-trimtab-gray-3 mb-1">{cmd.description}</p>
                     <p className="text-sm text-trimtab-gray-2 italic">When to use: {cmd.when}</p>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        );
+      
+      case 'file-structure':
+        return (
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-3xl font-bold text-trimtab-blue-4 mb-4 flex items-center">
+                <Folder className="w-8 h-8 mr-3" />
+                Understanding Your Website's File Structure
+              </h2>
+              <p className="text-lg text-trimtab-gray-3 mb-8">
+                Think of this like the filing system in your office - everything has its place for a reason.
+              </p>
+            </div>
+            
+            <div className="space-y-4">
+              {fileStructureGuide.map((item, index) => {
+                const IconComponent = item.icon;
+                return (
+                  <Card key={index} className="border-trimtab-gray-2">
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 bg-trimtab-blue-0 rounded-lg flex items-center justify-center">
+                          <IconComponent className="w-6 h-6 text-trimtab-cta" />
+                        </div>
+                        <div className="flex-1">
+                          <code className="bg-gray-100 px-3 py-1 rounded text-trimtab-blue-4 font-mono text-lg">
+                            {item.path}
+                          </code>
+                          <p className="text-trimtab-gray-3 mt-2">{item.description}</p>
+                          <p className="text-sm text-trimtab-gray-2 italic mt-1">Example: {item.example}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+        );
 
-        {/* Copilot Instructions Reference */}
-        <div className="mb-12">
-          <Card className="border-trimtab-gray-2 bg-gradient-to-r from-blue-50 to-purple-50">
-            <CardHeader>
-              <CardTitle className="text-2xl text-trimtab-blue-4 flex items-center">
-                <FileText className="w-6 h-6 mr-3" />
+      case 'prompt-library':
+        return (
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-3xl font-bold text-trimtab-blue-4 mb-4 flex items-center">
+                <MessageSquare className="w-8 h-8 mr-3" />
+                Your Prompt Library
+              </h2>
+              <p className="text-lg text-trimtab-gray-3 mb-8">
+                Copy-paste prompts organized by what you want to accomplish.
+              </p>
+            </div>
+            
+            <div className="space-y-6">
+              {keyPrompts.map((category, index) => (
+                <Card key={index} className="border-trimtab-gray-2">
+                  <CardContent className="p-6">
+                    <h3 className="font-semibold text-trimtab-blue-4 mb-3 flex items-center">
+                      <ChevronRight className="w-5 h-5 mr-2" />
+                      {category.category}
+                    </h3>
+                    <div className="space-y-2">
+                      {category.prompts.map((prompt, promptIndex) => (
+                        <div key={promptIndex} className="bg-gray-50 p-3 rounded-lg flex items-start justify-between group">
+                          <p className="text-trimtab-gray-3 flex-1">{prompt}</p>
+                          <Button size="sm" variant="ghost" className="opacity-0 group-hover:opacity-100 transition-opacity">
+                            <Copy className="w-4 h-4" />
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        );
+
+      case 'copilot-instructions':
+        return (
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-3xl font-bold text-trimtab-blue-4 mb-4 flex items-center">
+                <FileText className="w-8 h-8 mr-3" />
                 Your Secret Weapon: copilot-instructions.md
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div className="bg-white border border-blue-200 rounded-lg p-4">
-                  <h3 className="font-semibold text-trimtab-blue-4 mb-2 flex items-center">
+              </h2>
+              <p className="text-lg text-trimtab-gray-3 mb-8">
+                Understanding your project's secret sauce and how to leverage it.
+              </p>
+            </div>
+            
+            <div className="space-y-6">
+              <Card className="border-blue-200 bg-blue-50">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-trimtab-blue-4 mb-3 flex items-center">
                     <Info className="w-5 h-5 mr-2" />
                     What It Is
                   </h3>
@@ -373,10 +490,12 @@ export default function PersonalPromptingGuide() {
                     your focus (APEST ministry), your preferred components (shadcn/ui), and how you like things structured. 
                     It's like giving Copilot a detailed brief about your ministry and style preferences.
                   </p>
-                </div>
-                
-                <div className="bg-white border border-green-200 rounded-lg p-4">
-                  <h3 className="font-semibold text-trimtab-blue-4 mb-2 flex items-center">
+                </CardContent>
+              </Card>
+              
+              <Card className="border-green-200 bg-green-50">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-trimtab-blue-4 mb-3 flex items-center">
                     <Lightbulb className="w-5 h-5 mr-2" />
                     Why It's Powerful
                   </h3>
@@ -384,10 +503,12 @@ export default function PersonalPromptingGuide() {
                     Instead of explaining "I want this to match my APEST platform with Trimtab colors" every time, 
                     Copilot already knows. You can copy this file to other projects and have the same intelligent assistance everywhere.
                   </p>
-                </div>
+                </CardContent>
+              </Card>
 
-                <div className="bg-white border border-purple-200 rounded-lg p-4">
-                  <h3 className="font-semibold text-trimtab-blue-4 mb-2 flex items-center">
+              <Card className="border-purple-200 bg-purple-50">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-trimtab-blue-4 mb-3 flex items-center">
                     <Edit className="w-5 h-5 mr-2" />
                     How to Modify It
                   </h3>
@@ -396,388 +517,124 @@ export default function PersonalPromptingGuide() {
                     you can edit it like any other file. Add new preferences, update your style guide, 
                     or include specific instructions for new types of content you're creating.
                   </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        );
 
-        {/* File Structure Guide */}
-        <div className="mb-12">
-          <Card className="border-trimtab-gray-2">
-            <CardHeader>
-              <CardTitle className="text-2xl text-trimtab-blue-4 flex items-center">
-                <Folder className="w-6 h-6 mr-3" />
-                Understanding Your Website's File Structure
-              </CardTitle>
-              <p className="text-trimtab-gray-3">
-                Think of this like organizing a filing cabinet - everything has its place.
-              </p>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {fileStructureGuide.map((item, index) => {
-                  const IconComponent = item.icon;
-                  return (
-                    <div key={index} className="border border-trimtab-gray-1 rounded-lg p-4">
-                      <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 bg-trimtab-blue-1 rounded-lg flex items-center justify-center">
-                          <IconComponent className="w-5 h-5 text-trimtab-blue-2" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">
-                              {item.path}
-                            </code>
-                          </div>
-                          <p className="text-trimtab-gray-3 mb-1">{item.description}</p>
-                          <p className="text-sm text-trimtab-gray-2 italic">Example: {item.example}</p>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+      default:
+        return (
+          <div className="text-center py-12">
+            <h2 className="text-2xl font-bold text-trimtab-blue-4 mb-4">Section Coming Soon</h2>
+            <p className="text-trimtab-gray-3">This section is being developed. Check back soon!</p>
+          </div>
+        );
+    }
+  };
 
-        {/* Key Prompts */}
-        <div className="mb-12">
-          <Card className="border-trimtab-gray-2">
-            <CardHeader>
-              <CardTitle className="text-2xl text-trimtab-blue-4 flex items-center">
-                <MessageSquare className="w-6 h-6 mr-3" />
-                Your Prompt Library
-              </CardTitle>
-              <p className="text-trimtab-gray-3">
-                Copy and customize these prompts for common tasks. Replace [bracketed items] with your specific needs.
-              </p>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-6">
-                {keyPrompts.map((category, index) => (
-                  <div key={index}>
-                    <h3 className="text-lg font-semibold text-trimtab-blue-4 mb-3 flex items-center">
-                      <Target className="w-5 h-5 mr-2" />
-                      {category.category}
-                    </h3>
-                    <div className="space-y-3">
-                      {category.prompts.map((prompt, promptIndex) => (
-                        <div key={promptIndex} className="border border-trimtab-gray-1 rounded-lg p-3 bg-gray-50">
-                          <div className="flex items-start justify-between gap-3">
-                            <p className="text-trimtab-gray-3 font-mono text-sm flex-1">{prompt}</p>
-                            <Button size="sm" variant="ghost" className="text-trimtab-blue-2 hover:bg-trimtab-blue-0 flex-shrink-0">
-                              <Copy className="w-4 h-4" />
-                            </Button>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Development Concepts */}
-        <div className="mb-12">
-          <Card className="border-trimtab-gray-2">
-            <CardHeader>
-              <CardTitle className="text-2xl text-trimtab-blue-4 flex items-center">
-                <BookOpen className="w-6 h-6 mr-3" />
-                Key Concepts Explained Simply
-              </CardTitle>
-              <p className="text-trimtab-gray-3">
-                Understanding these concepts will help you communicate more effectively with Copilot.
-              </p>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {developmentConcepts.map((concept, index) => (
-                  <div key={index} className="border border-trimtab-gray-1 rounded-lg p-4">
-                    <div className="mb-3">
-                      <h3 className="text-lg font-semibold text-trimtab-blue-4 mb-1">{concept.term}</h3>
-                      <p className="text-trimtab-gray-3">{concept.definition}</p>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-4 text-sm">
-                      <div>
-                        <p className="text-trimtab-gray-2 mb-1"><strong>Example:</strong></p>
-                        <p className="text-trimtab-gray-3">{concept.example}</p>
-                      </div>
-                      <div>
-                        <p className="text-trimtab-gray-2 mb-1"><strong>Think of it like:</strong></p>
-                        <p className="text-trimtab-gray-3 italic">{concept.analogy}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Copilot Tips */}
-        <div className="mb-12">
-          <Card className="border-trimtab-gray-2">
-            <CardHeader>
-              <CardTitle className="text-2xl text-trimtab-blue-4 flex items-center">
-                <Brain className="w-6 h-6 mr-3" />
-                How to Get the Best Results from Copilot
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {copilotTips.map((tip, index) => (
-                  <div key={index} className="border border-trimtab-gray-1 rounded-lg p-4">
-                    <h3 className="font-semibold text-trimtab-blue-4 mb-2">{tip.tip}</h3>
-                    <p className="text-trimtab-gray-3 mb-3">{tip.explanation}</p>
-                    <div className="grid md:grid-cols-2 gap-4 text-sm">
-                      <div className="bg-green-50 border border-green-200 rounded p-3">
-                        <p className="text-green-700 font-medium mb-1">✅ Good Example:</p>
-                        <p className="text-green-600 italic">"{tip.good}"</p>
-                      </div>
-                      <div className="bg-red-50 border border-red-200 rounded p-3">
-                        <p className="text-red-700 font-medium mb-1">❌ Avoid This:</p>
-                        <p className="text-red-600 italic">"{tip.bad}"</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Troubleshooting */}
-        <div className="mb-12">
-          <Card className="border-trimtab-gray-2">
-            <CardHeader>
-              <CardTitle className="text-2xl text-trimtab-blue-4 flex items-center">
-                <Wrench className="w-6 h-6 mr-3" />
-                Common Issues & Solutions
-              </CardTitle>
-              <p className="text-trimtab-gray-3">
-                Don't panic if something goes wrong - these are the most common issues and how to fix them.
-              </p>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {troubleshootingGuide.map((issue, index) => (
-                  <div key={index} className="border border-trimtab-gray-1 rounded-lg p-4">
-                    <div className="flex items-start gap-3 mb-3">
-                      <AlertCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <h3 className="font-semibold text-trimtab-blue-4 mb-1">Problem: {issue.problem}</h3>
-                        <p className="text-trimtab-gray-3">{issue.solution}</p>
-                      </div>
-                    </div>
-                    <div className="bg-blue-50 border border-blue-200 rounded p-3">
-                      <p className="text-blue-700 text-sm">
-                        <strong>Prevention:</strong> {issue.prevention}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Content Management Options */}
-        <div className="mb-12">
-          <Card className="border-trimtab-gray-2 bg-gradient-to-r from-purple-50 to-pink-50">
-            <CardHeader>
-              <CardTitle className="text-2xl text-trimtab-blue-4 flex items-center">
-                <Edit className="w-6 h-6 mr-3" />
-                Remember: You Have Options for Content Creation
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white border border-purple-200 rounded-lg p-4">
-                  <h3 className="font-semibold text-trimtab-blue-4 mb-3 flex items-center">
-                    <Code2 className="w-5 h-5 mr-2" />
-                    Working with Code (This Guide)
-                  </h3>
-                  <ul className="space-y-2 text-trimtab-gray-3">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Unlimited customization and creativity</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Direct control over every aspect</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Learning valuable digital skills</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Copilot handles the technical complexity</span>
-                    </li>
-                  </ul>
-                </div>
-                
-                <div className="bg-white border border-pink-200 rounded-lg p-4">
-                  <h3 className="font-semibold text-trimtab-blue-4 mb-3 flex items-center">
-                    <Type className="w-5 h-5 mr-2" />
-                    Content Editors (Alternative)
-                  </h3>
-                  <ul className="space-y-2 text-trimtab-gray-3">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>TipTap composer for rich text editing</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Familiar word processor experience</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>Perfect for blog posts and articles</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>No code knowledge required</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="mt-6 bg-white border border-blue-200 rounded-lg p-4">
-                <h3 className="font-semibold text-trimtab-blue-4 mb-2 flex items-center">
-                  <Lightbulb className="w-5 h-5 mr-2" />
-                  The Best Approach
-                </h3>
-                <p className="text-trimtab-gray-3">
-                  Start with whatever feels comfortable - content editors for regular updates, 
-                  and code for special features or major changes. As you get more comfortable with 
-                  Copilot, you'll find yourself naturally gravitating toward the code approach for 
-                  its creative freedom and precise control.
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <div className="bg-white border-b border-gray-200 sticky top-0 z-40">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <Image 
+                src="/trimtab-logo.webp" 
+                alt="Trimtab Logo" 
+                width={40} 
+                height={40}
+              />
+              <div>
+                <h1 className="text-2xl font-bold text-trimtab-blue-4">
+                  Tim's Prompting Dashboard
+                </h1>
+                <p className="text-sm text-trimtab-gray-3">
+                  Your complete AI development reference
                 </p>
               </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* GitHub Basics */}
-        <div className="mb-12">
-          <Card className="border-trimtab-gray-2">
-            <CardHeader>
-              <CardTitle className="text-2xl text-trimtab-blue-4 flex items-center">
-                <GitBranch className="w-6 h-6 mr-3" />
-                GitHub Basics: Think of it as Your Digital Filing System
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div className="grid md:grid-cols-3 gap-4">
-                  <div className="border border-trimtab-gray-1 rounded-lg p-4 text-center">
-                    <Save className="w-8 h-8 text-blue-500 mx-auto mb-3" />
-                    <h3 className="font-semibold text-trimtab-blue-4 mb-2">Commit</h3>
-                    <p className="text-sm text-trimtab-gray-3">
-                      Like saving a document with a note about what you changed
-                    </p>
-                  </div>
-                  <div className="border border-trimtab-gray-1 rounded-lg p-4 text-center">
-                    <GitBranch className="w-8 h-8 text-green-500 mx-auto mb-3" />
-                    <h3 className="font-semibold text-trimtab-blue-4 mb-2">Branch</h3>
-                    <p className="text-sm text-trimtab-gray-3">
-                      Like working on a copy while keeping the original safe
-                    </p>
-                  </div>
-                  <div className="border border-trimtab-gray-1 rounded-lg p-4 text-center">
-                    <RefreshCw className="w-8 h-8 text-purple-500 mx-auto mb-3" />
-                    <h3 className="font-semibold text-trimtab-blue-4 mb-2">Merge</h3>
-                    <p className="text-sm text-trimtab-gray-3">
-                      Like incorporating your changes into the main version
-                    </p>
-                  </div>
-                </div>
-
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                  <h3 className="font-semibold text-trimtab-blue-4 mb-2">Why This Matters</h3>
-                  <p className="text-trimtab-gray-3">
-                    GitHub keeps track of every change you make, who made it, and when. 
-                    If something breaks, you can always go back to a working version. 
-                    It's like having a detailed history of every edit to your manuscript, 
-                    with the ability to restore any previous version instantly.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Keyword Reference */}
-        <div className="mb-12">
-          <Card className="border-trimtab-gray-2">
-            <CardHeader>
-              <CardTitle className="text-2xl text-trimtab-blue-4 flex items-center">
-                <Key className="w-6 h-6 mr-3" />
-                Your Keyword Toolkit
-              </CardTitle>
-              <p className="text-trimtab-gray-3">
-                Use these terms when talking to Copilot - they'll help you get exactly what you want.
-              </p>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div>
-                  <h3 className="font-semibold text-trimtab-blue-4 mb-3">Layout Terms</h3>
-                  <div className="space-y-1 text-sm">
-                    {["Responsive", "Mobile-first", "Grid layout", "Flexbox", "Hero section", "Sidebar", "Navigation", "Footer"].map((term, i) => (
-                      <div key={i} className="bg-gray-50 px-2 py-1 rounded">{term}</div>
-                    ))}
-                  </div>
-                </div>
-                
-                <div>
-                  <h3 className="font-semibold text-trimtab-blue-4 mb-3">Interactive Elements</h3>
-                  <div className="space-y-1 text-sm">
-                    {["Form validation", "Modal dialog", "Dropdown menu", "Tabs", "Accordion", "Progress bar", "Loading state", "Hover effects"].map((term, i) => (
-                      <div key={i} className="bg-gray-50 px-2 py-1 rounded">{term}</div>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-trimtab-blue-4 mb-3">APEST-Specific</h3>
-                  <div className="space-y-1 text-sm">
-                    {["Assessment form", "Course enrollment", "Member portal", "Leadership content", "Ministry resources", "Community features", "Progress tracking", "Certificate display"].map((term, i) => (
-                      <div key={i} className="bg-gray-50 px-2 py-1 rounded">{term}</div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Final Encouragement */}
-        <Card className="border-trimtab-gray-2 bg-gradient-to-r from-green-50 to-blue-50">
-          <CardContent className="p-8 text-center">
-            <Rocket className="w-12 h-12 text-trimtab-cta mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-trimtab-blue-4 mb-4">
-              You're Ready to Build Something Amazing
-            </h2>
-            <p className="text-lg text-trimtab-gray-3 mb-6 max-w-2xl mx-auto">
-              Remember, every expert was once a beginner. Your unique perspective on APEST ministry 
-              combined with these digital tools will create something truly special. Start small, 
-              experiment fearlessly, and watch your platform grow.
-            </p>
-            <div className="flex items-center justify-center gap-4">
-              <Badge className="bg-trimtab-cta text-white text-lg px-4 py-2">
-                <Heart className="w-5 h-5 mr-2" />
-                You've Got This!
-              </Badge>
             </div>
-          </CardContent>
-        </Card>
+            
+            <div className="flex items-center gap-2">
+              <Badge className="bg-green-500 text-white">
+                <CheckCircle className="w-4 h-4 mr-1" />
+                Safe
+              </Badge>
+              <Badge className="bg-blue-500 text-white">
+                <Brain className="w-4 h-4 mr-1" />
+                Smart
+              </Badge>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setSidebarOpen(!sidebarOpen)}
+                className="lg:hidden"
+              >
+                {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </Button>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div className="flex">
+        {/* Sidebar */}
+        <div className={`
+          ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} 
+          lg:translate-x-0 transition-transform duration-300 ease-in-out
+          fixed lg:static top-[73px] lg:top-0 left-0 z-30
+          w-80 h-[calc(100vh-73px)] lg:h-screen
+          bg-white border-r border-gray-200 overflow-y-auto
+        `}>
+          <div className="p-6">
+            <h2 className="text-lg font-semibold text-trimtab-blue-4 mb-4">Navigation</h2>
+            <nav className="space-y-2">
+              {sidebarSections.map((section) => {
+                const IconComponent = section.icon;
+                return (
+                  <button
+                    key={section.id}
+                    onClick={() => setActiveSection(section.id)}
+                    className={`
+                      w-full text-left p-3 rounded-lg transition-colors
+                      flex items-start gap-3 group
+                      ${activeSection === section.id 
+                        ? 'bg-trimtab-blue-0 border border-trimtab-blue-1 text-trimtab-blue-4' 
+                        : 'hover:bg-gray-50 text-trimtab-gray-3 hover:text-trimtab-blue-4'
+                      }
+                    `}
+                  >
+                    <IconComponent className={`
+                      w-5 h-5 mt-0.5 flex-shrink-0
+                      ${activeSection === section.id ? 'text-trimtab-cta' : 'text-trimtab-gray-2'}
+                    `} />
+                    <div>
+                      <div className="font-medium">{section.title}</div>
+                      <div className="text-sm opacity-75 mt-1">{section.description}</div>
+                    </div>
+                  </button>
+                );
+              })}
+            </nav>
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 lg:ml-0">
+          <div className="container mx-auto px-6 py-8 max-w-5xl">
+            {renderSection()}
+          </div>
+        </div>
+      </div>
+
+      {/* Overlay for mobile when sidebar is open */}
+      {sidebarOpen && (
+        <div 
+          className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-20"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
     </div>
   )
 }
